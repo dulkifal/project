@@ -3,7 +3,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
 
-      <main>{children}</main>
+      <main dir="rtl">{children}</main>
       <Footer />
     </>
   )

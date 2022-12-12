@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styles from "/styles/admin/login.module.css";
-
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
 
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -11,7 +12,14 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await login(name, password);
+      await login(name, password).then((data) => {
+        console.log(data);
+        localStorage.setItem('token', data.token);
+        router.push('/admin');
+        
+      }
+      );
+
     } catch (error) {
       setError(error.message);
     }
@@ -43,7 +51,7 @@ const Login = () => {
 export default Login;
 
 const login = async (name, password) => {
-  const res = await fetch('/api/login', {
+  const res = await fetch('/api/admin/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -51,7 +59,14 @@ const login = async (name, password) => {
     body: JSON.stringify({ name, password })
   });
 
-  if (!res.ok) {
-    throw new Error('Something went wrong');
+  if (res.status === 401) {
+    throw new Error('Invalid username or password');
   }
+  if(res.status === 500) {
+    throw new Error('Server error');
+  }
+  const data = await res.json();
+  console.log(data);
+  return data;
+
 }

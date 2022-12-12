@@ -13,7 +13,7 @@ const Ask = () => {
         <input type="text" id="name" name="name" />
         <label htmlFor="email">البريد الإلكتروني</label>
         <input type="email" id="email" name="email" />
-        <button  onClick={()=>submitQuestion()}>إرسال</button>
+        <button  onClick={(e)=>submitQuestion(e)}>إرسال</button>
 
       </form>
     </div>
@@ -21,7 +21,9 @@ const Ask = () => {
 }
 export default Ask;
 
-function submitQuestion() {
+function submitQuestion(e) {
+  e.preventDefault();
+
   fetch('/api/fatwa/ask', {
     method: 'POST',
     headers: {

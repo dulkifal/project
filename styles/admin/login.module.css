@@ -12,4 +12,8 @@
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
+  background: rgb(189, 171, 216);
+  padding: 1rem;
+
+  border-radius: 0.5rem;
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "/styles/admin/Login.module.css";
+import styles from "/styles/admin/login.module.css";
 
 
 const Login = () => {
@@ -41,3 +41,17 @@ const Login = () => {
 }
 
 export default Login;
+
+const login = async (name, password) => {
+  const res = await fetch('/api/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name, password })
+  });
+
+  if (!res.ok) {
+    throw new Error('Something went wrong');
+  }
+}

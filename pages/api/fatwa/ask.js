@@ -2,9 +2,7 @@ import validateUser from "../../../lib/validate";
 import db from "../../../lib/db";
 
 export default async function handler(req, res) {
-  let valid;
-  req.headers.authorization > 0 ? (valid = validateUser(req, res)) : null;
-
+   
   const { method } = req;
   switch (method) {
     case "POST":
@@ -21,9 +19,8 @@ export default async function handler(req, res) {
       deleteQuestion(req, res, db);
       break;
 
-    // default:
-    //   res.setHeader('Allow', ['POST', 'GET']);
-    //   res.status(405).end(`Method ${method} Not Allowed`);
+   
+
   }
 }
 function addQuestion(req, res, db) {

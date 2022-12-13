@@ -1,4 +1,7 @@
-import db from "../../../lip/db";
+import validateUser from "../../../lib/validate";
+import db from "../../../lib/db";
+  let valid =  validateUser(req, res);
+
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -37,10 +40,14 @@ function addQuestion(req, res, db) {
 }
 
 function getQuesions(req, res, db) {
+ 
+if(valid ){
+
   db.query(`SELECT * FROM questions`, (error, results, fields) => {
     if (error) throw error;
     res.send(results);
   });
+}
 }
 
 function addAnswer(req, res, db) {
@@ -75,3 +82,5 @@ function deleteQuestion(req, res, db) {
     }
   );
 }
+
+ 

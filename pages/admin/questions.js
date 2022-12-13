@@ -14,6 +14,19 @@ const showQuestions = () => {
         setQuestions(data);
       });
   };
+
+  const addAnswer = (id,index) => {
+    const answer = document.getElementById(index).value;
+    fetch("/api/fatwa/ask", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ answer, id }),
+    }).then(() => {
+      fetchQuestions();
+    });
+  };
   const deleteIt = (id) => {
     fetch("/api/fatwa/ask", {
       method: "DELETE",
@@ -32,10 +45,11 @@ const showQuestions = () => {
     <div>
       <h1>Questions</h1>
       <ul>
-        {questions.map((question) => (
+        {questions.map((question,index) => (
           <li key={question.id}>
             <h3>{question.question}</h3>
-            <p>{question.answer}</p>
+            <textarea defaultValue={question.answer}  id={index} />
+            <button onClick={()=>addAnswer(question.id, index)}>add answer</button> 
             <p>{question.name}</p>
             <p>{question.email}</p>
             <button onClick={()=> deleteIt(question.id)}>delete</button>

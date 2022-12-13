@@ -45,7 +45,11 @@ function getQuesions(req, res, db) {
         if (error) throw error;
         res.send(results);
       })
-    : res.status(401).send("Not authorized");
+    :
+      db.query(`SELECT * FROM questions WHERE answer IS NOT NULL`, (error, results, fields) => {
+      if (error) throw error;
+      res.send(results);
+    })
 }
 
 function addAnswer(req, res, db) {

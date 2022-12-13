@@ -14,10 +14,8 @@ export default function Home() {
 
       <main className={styles.main}>
         
-<h1>bismi</h1>
-<Link href="/fatwa/ask">
-<button >Ask </button>
-</Link>
+<h1> بسم لله الرحمن الرحيم</h1>
+ 
         
  
 

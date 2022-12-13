@@ -1,3 +1,5 @@
+import Navbar from "./navbar"
+
 const Layout = ({ children }) => {
   return (
     <>
@@ -13,7 +15,7 @@ export default Layout
 const Header = () => {
   return (
     <header>
-      <h1>Header</h1>
+      <Navbar />
     </header>
   )
 }

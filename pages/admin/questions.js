@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getData, patchData, deleteData, } from "../../lib/baseApi";
 
 const showQuestions = () => {
   const [questions, setQuestions] = useState([]);
@@ -8,8 +9,7 @@ const showQuestions = () => {
   }, []);
   
   const fetchQuestions = () => {
-    fetch("/api/fatwa/ask")
-      .then((res) => res.json())
+    getData("/api/fatwa/ask")
       .then((data) => {
         setQuestions(data);
       });
@@ -17,23 +17,15 @@ const showQuestions = () => {
 
   const addAnswer = (id,index) => {
     const answer = document.getElementById(index).value;
-    fetch("/api/fatwa/ask", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ answer, id }),
-    }).then(() => {
+    patchData("/api/fatwa/ask", { id, answer}
+     ).then(() => {
       fetchQuestions();
     });
   };
   const deleteIt = (id) => {
-    fetch("/api/fatwa/ask", {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({"id": id }),
+   deleteData("/api/fatwa/ask", {
+      
+      id,
     }).then(() => {
       fetchQuestions();
     });

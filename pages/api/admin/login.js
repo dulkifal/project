@@ -1,4 +1,4 @@
-import db from "../../../lip/db";
+import db from "../../../lib/db";
 const jwt = require("jsonwebtoken");
 
 export default function handleLogin(req, res) {

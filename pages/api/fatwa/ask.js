@@ -1,9 +1,10 @@
 import validateUser from "../../../lib/validate";
 import db from "../../../lib/db";
-  let valid =  validateUser(req, res);
-
 
 export default async function handler(req, res) {
+  let valid;
+  req.headers.authorization > 0 ? (valid = validateUser(req, res)) : null;
+
   const { method } = req;
   switch (method) {
     case "POST":
@@ -11,13 +12,14 @@ export default async function handler(req, res) {
       break;
     case "GET":
       getQuesions(req, res, db);
+
       break;
     case "PATCH":
       addAnswer(req, res, db);
       break;
-      case "DELETE":
-        deleteQuestion(req, res, db);
-        break;
+    case "DELETE":
+      deleteQuestion(req, res, db);
+      break;
 
     // default:
     //   res.setHeader('Allow', ['POST', 'GET']);
@@ -40,47 +42,51 @@ function addQuestion(req, res, db) {
 }
 
 function getQuesions(req, res, db) {
- 
-if(valid ){
-
-  db.query(`SELECT * FROM questions`, (error, results, fields) => {
-    if (error) throw error;
-    res.send(results);
-  });
-}
+  let valid = validateUser(req, res);
+  valid
+    ? db.query(`SELECT * FROM questions`, (error, results, fields) => {
+        if (error) throw error;
+        res.send(results);
+      })
+    : res.status(401).send("Not authorized");
 }
 
 function addAnswer(req, res, db) {
+  let valid = validateUser(req, res);
   const { answer, id } = req.body;
   // add answer to the question with id
-  db.query(
-    `
+  valid
+    ? db.query(
+        `
     UPDATE questions
     SET answer = ?
     WHERE id = ?
     `,
-    [answer, id],
-    
-    (error, results, fields) => {
-      if (error) throw error;
-      res.send(results);
-    }
-  );
+        [answer, id],
+
+        (error, results, fields) => {
+          if (error) throw error;
+          res.send(results);
+        }
+      )
+    : res.status(401).send("Not authorized");
 }
 
 function deleteQuestion(req, res, db) {
+  let valid = validateUser(req, res);
+
   const { id } = req.body;
-  db.query(
-    `
+  valid
+    ? db.query(
+        `
     DELETE FROM questions
     WHERE id = ?
     `,
-    [id],
-    (error, results, fields) => {
-      if (error) throw error;
-      res.send(results);
-    }
-  );
+        [id],
+        (error, results, fields) => {
+          if (error) throw error;
+          res.send(results);
+        }
+      )
+    : res.status(401).send("Not authorized");
 }
-
- 

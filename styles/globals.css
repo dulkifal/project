@@ -36,6 +36,11 @@ a {
   border-bottom: 2px solid  #81c686;;
 }
 
+.Blogs{
+  text-decoration: overline;
+
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

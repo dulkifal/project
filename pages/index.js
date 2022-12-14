@@ -21,11 +21,11 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1> بسم لله الرحمن الرحيم</h1>
+       
 
         <div className="Blogs">
           {fatwas.map((fatwa) => (
-            <div key={fatwa.id}>
+            <div key={fatwa.id} className="card">
               <Link href={`/fatwa/${fatwa.id}`}>
                 <h4>
 

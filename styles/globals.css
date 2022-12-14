@@ -13,31 +13,64 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: "andulus";
+}
+
+.navbar h1{
+  
+   
+   margin-bottom: 0;
+  text-align: center;
 }
 .navItems{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 1.5rem;
   padding: 0 20px;
   height: 60px;
- 
-  /* background-color: #81c686; */
+font-weight: bold;
+font-size: 1.2rem; 
+color: #fff;
+  background-color: #0d6f14;
   border-bottom: 1px solid #e5e5e5;
 }
 .navItems a:hover{
-  color: #000;
-  font-size: 1rem;
-  font-weight: 500;
-  text-decoration: none;
+  
+  
+  
+  color: #81c686;
   transition: all 0.3s ease-in-out;
 }
 .navItems .active{
-   font-size: 1.2rem;
   border-bottom: 2px solid  #81c686;;
 }
 
 .Blogs{
-  text-decoration: overline;
+   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
+  margin: 0 2rem;
+
+
+}
+.Blogs .card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: .5rem;
+  border: 2px solid #0d6f1442;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.Blogs .card:hover{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 2px solid #0d6f147b;
+  transition: all 0.3s ease-in-out;
+  scale: 1.02;
 
 }
 

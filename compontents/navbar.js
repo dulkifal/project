@@ -20,7 +20,7 @@ const Navbar = () => {
       <h1> الفقه الشافعية</h1>
       <div className="navItems" >
 
-        <Link  href="/" className={isActive("/")} onClick={()=>toggleActive}>الرئيسة</Link>
+        <Link  href="/" className={isActive("/")}  >الرئيسة</Link>
         <Link  href="/fatwa/ask"  className={isActive("/fatwa/ask")}>اسأل</Link>
         <Link  href="/admin/login"  className={isActive("/admin/login")}>مشرف</Link>
       </div>

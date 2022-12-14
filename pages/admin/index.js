@@ -5,9 +5,9 @@ export default function Admin() {
   
   return (
     <div>
-      <h1>Admin</h1>
+      <h1>لوحة الادارة</h1>
       <Link href="/admin/questions">
-      <button>show questions</button>
+      <button>عرض الأسئلة</button>
       </Link>
 
     

@@ -22,6 +22,7 @@ const Navbar = () => {
 
         <Link  href="/" className={isActive("/")} onClick={()=>toggleActive}>الرئيسة</Link>
         <Link  href="/fatwa/ask"  className={isActive("/fatwa/ask")}>اسأل</Link>
+        <Link  href="/admin/login"  className={isActive("/admin/login")}>مشرف</Link>
       </div>
     </nav>
   );

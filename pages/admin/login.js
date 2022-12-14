@@ -27,21 +27,21 @@ const Login = () => {
 
   return (
     <div className={styles.loginPage}>
-      <h1>Login</h1>
+      <h1>تسجيل الدخول</h1>
       <form onSubmit={handleLogin} className={styles.form}>
         <input
           type="text"
-          placeholder="Name"
+          placeholder="الإسم"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="كلمه السر"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button type="submit">تسجيل الدخول</button>
       </form>
       {error && <p>{error}</p>}
     </div >

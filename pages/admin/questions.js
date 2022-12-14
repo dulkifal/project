@@ -35,7 +35,7 @@ const showQuestions = () => {
 
   return (
     <div>
-      <h1>Questions</h1>
+      <h1>أسئلة</h1>
       <ul>
         {questions.map((question,index) => (
           <li key={question.id}>

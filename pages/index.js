@@ -26,7 +26,13 @@ export default function Home() {
         <div>
           {fatwas.map((fatwa) => (
             <div key={fatwa.id}>
-              <Link href={`/fatwa/${fatwa.id}`}>{fatwa.question}</Link>
+              <Link href={`/fatwa/${fatwa.id}`}>
+                <h4>
+
+                {fatwa.question}
+                </h4>
+                <p>{fatwa.answer.slice(0,100)}....</p>
+                </Link>
             </div>
           ))}
         </div>

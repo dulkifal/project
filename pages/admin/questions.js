@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getData, patchData, deleteData, } from "../../lib/baseApi";
 
-const showQuestions = () => {
+const ShowQuestions = () => {
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
@@ -53,4 +53,4 @@ const showQuestions = () => {
   );
 };
 
-export default showQuestions;
+export default ShowQuestions;

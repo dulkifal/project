@@ -1,4 +1,5 @@
 import Navbar from "./navbar"
+import { AnalyticsWrapper } from "./analytics"
 
 const Layout = ({ children }) => {
   return (
@@ -7,6 +8,7 @@ const Layout = ({ children }) => {
 
       <main dir="rtl">{children}</main>
       <Footer />
+      <AnalyticsWrapper />
     </>
   )
 }

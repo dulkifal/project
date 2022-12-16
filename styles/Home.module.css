@@ -1,0 +1,64 @@
+
+.main{
+  display: grid;
+  grid-template-columns: 1fr 13rem;
+  grid-gap: 10px;
+ 
+   
+  padding: 10px;
+}
+
+
+.blogs{
+
+   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  margin: 0 2rem;
+
+
+}
+
+.blogs .card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: .5rem;
+  border: 2px solid #0d6f1442;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.Blogs .card:hover{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 2px solid #0d6f147b;
+  transition: all 0.3s ease-in-out;
+  scale: 1.02;
+
+}
+
+.sideBar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+   
+  padding: .5rem;
+  border: 2px solid #0d6f1442;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.sideBar .question{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  padding: .5rem;
+  border: 2px solid #0d6f1442;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}

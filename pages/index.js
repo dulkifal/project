@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import styles from "../styles/Home.module.css";
+import s from "../styles/Home.module.css";
 import { getData } from "../lib/baseApi";
 
 export default function Home() {
@@ -14,18 +14,18 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={s.container}>
       <Head>
         <title> الفقه الشافعية</title>
         <meta name="description" content=" قسم الفقه وأصوله" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={s.main}>
        
 
-        <div className="Blogs">
+        <div className={s.blogs}>
           {fatwas.map((fatwa) => (
-            <div key={fatwa.id} className="card">
+            <div key={fatwa.id} className={s.card}>
               <Link href={`/fatwa/${fatwa.id}`}>
                 <h4>
 
@@ -36,7 +36,20 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <aside className={s.sideBar}>
+          <div className={s.question}>
+             <Link href="/fatwa/ask">
+            <h3>اطرح سؤالك</h3>
+          </Link>
+
+          </div>
+          <Link href="/fatwa">
+            المزيد
+          </Link>
+
+        </aside>
       </main>
     </div>
+
   );
 }

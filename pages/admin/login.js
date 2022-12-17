@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "/styles/admin/login.module.css";
+import s from "/styles/admin/login.module.css";
 import { useRouter } from "next/router";
 
 const Login = () => {
@@ -26,9 +26,10 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.loginPage}>
-      <h1>تسجيل الدخول</h1>
-      <form onSubmit={handleLogin} className={styles.form}>
+    <div className={s.loginPage}>
+      <div className={s.loginarea}>
+      <p>تسجيل الدخول</p>
+      <form onSubmit={handleLogin} className={s.form}>
         <input
           type="text"
           placeholder="الإسم"
@@ -41,9 +42,10 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">تسجيل الدخول</button>
+        <input type="submit" value={"تسجيل الدخول"}/>  
       </form>
       {error && <p>{error}</p>}
+    </div>
     </div >
   );
 }

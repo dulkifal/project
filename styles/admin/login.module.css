@@ -3,17 +3,43 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 70vh;
   background-color: #f5f5f5;
+  font-size: 2rem;
 }
-
+.loginarea{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   border-radius: 1rem;
+  background-color: #dfcfcf95;
+}
 .form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  background: rgb(189, 171, 216);
+  /* background: rgb(189, 171, 216); */
   padding: 1rem;
 
   border-radius: 0.5rem;
+}
+.form input {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+.form input:focus {
+  border: 1px solid #0d6f14;
+}
+.form input[type="submit"] {
+  background-color: #0d6f14;
+  color: #fff;
+  font-size: 1.2rem;
+  width: fit-content;
+  margin: 0 auto;
+  cursor: pointer;
 }

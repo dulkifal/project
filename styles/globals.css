@@ -47,6 +47,30 @@ color: #fff;
 }
 
 
+.search form{
+  display: flex;
+  direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 20px;
+  border-radius: 1rem;
+font-weight: bold;
+background: #fff;
+}
+.search input{
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+ 
+.search  img {
+   
+  cursor: pointer;
+}
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

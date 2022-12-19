@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getData, patchData, deleteData, } from "../../lib/baseApi";
+import s from "../../styles/admin/answer.module.css";
 
 const ShowQuestions = () => {
   const [questions, setQuestions] = useState([]);
@@ -17,7 +18,8 @@ const ShowQuestions = () => {
 
   const addAnswer = (id,index) => {
     const answer = document.getElementById(index).value;
-    patchData("/api/fatwa/ask", { id, answer}
+    const lang = document.getElementById('l'+index).value ? document.getElementById('l'+index).value : 'arb';
+    patchData("/api/fatwa/ask", { id, answer ,lang}
      ).then(() => {
       fetchQuestions();
     });
@@ -30,25 +32,37 @@ const ShowQuestions = () => {
       fetchQuestions();
     });
   };
+  const changeLang = (lang) => {
+
+   
+  }
+
 
 
 
   return (
-    <div>
+    <div  className={s.answerSection}>
       <h1>أسئلة</h1>
-      <ul>
+      <div className={s.aswerContainer}>
         {questions.map((question,index) => (
-          <li key={question.id}>
+          <div key={question.id} className={s.card}>
+            {/* dropdown for select language */}
+            <label htmlFor="lang">select language</label>
+            <select onChange={(e)=> changeLang(e.target.value)} id={'l'+index} defaultValue={question.lang} >
+              <option value="arb">عربية</option>
+              <option value="urd">اردو</option>
+
+            </select>
             <h3>{question.question}</h3>
-            <textarea defaultValue={question.answer}  id={index} />
+            <textarea defaultValue={question.answer}  id={index} rows={15} cols={150} />
             <button onClick={()=>addAnswer(question.id, index)}>add answer</button> 
             <p>{question.name}</p>
             <p>{question.email}</p>
             <button onClick={()=> deleteIt(question.id)}>delete</button>
 
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

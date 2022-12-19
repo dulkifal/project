@@ -54,16 +54,17 @@ function getQuesions(req, res, db) {
 
 function addAnswer(req, res, db) {
   let valid = validateUser(req, res);
-  const { answer, id } = req.body;
+  const { answer, id, lang } = req.body;
   // add answer to the question with id
   valid
     ? db.query(
         `
     UPDATE questions
-    SET answer = ?
+    SET answer = ?, lang = ?
     WHERE id = ?
+
     `,
-        [answer, id],
+        [answer, lang, id],
 
         (error, results, fields) => {
           if (error) throw error;

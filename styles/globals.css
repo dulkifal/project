@@ -71,6 +71,33 @@ background: #fff;
    
   cursor: pointer;
 }
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 20px;
+ 
+font-weight: bold;
+font-size: 1.2rem;
+color: #fff;
+  background-color: #0d6f14;
+  border-top: 1px solid #e5e5e5;
+}
+.footer a:hover{
+  color: #81c686;
+  transition: all 0.3s ease-in-out;
+}
+ 
+ 
+ .footer__content__right__links li{
+  list-style: none;
+  display: inline-block;
+  margin-right: 1rem;
+}
+ 
+ 
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

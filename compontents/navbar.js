@@ -26,6 +26,9 @@ const Navbar = () => {
         <Link  href="/" className={isActive("/")}  >البرامج</Link>
         <Link  href="/" className={isActive("/")}  > نبذة عنا</Link>
         <Link  href="/admin/login"  className={isActive("/admin/login")}>مشرف</Link>
+        <div className="strach">
+
+        </div>
         <Search />
       </div>
     </nav>

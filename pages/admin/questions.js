@@ -47,18 +47,23 @@ const ShowQuestions = () => {
         {questions.map((question,index) => (
           <div key={question.id} className={s.card}>
             {/* dropdown for select language */}
-            <label htmlFor="lang">select language</label>
+            <label htmlFor="lang"> اختر لغة</label>
             <select onChange={(e)=> changeLang(e.target.value)} id={'l'+index} defaultValue={question.lang} >
               <option value="arb">عربية</option>
               <option value="urd">اردو</option>
 
             </select>
-            <h3>{question.question}</h3>
+           
+             
+            <h3>السؤال: {question.question}</h3>
+            <div className={s.answer}>
+            <label htmlFor="aswer">الجواب:</label>
             <textarea defaultValue={question.answer}  id={index} rows={15} cols={150} />
-            <button onClick={()=>addAnswer(question.id, index)}>add answer</button> 
+            <button  data-theme="add" onClick={()=>addAnswer(question.id, index)}>add answer</button> 
+            </div>
             <p>{question.name}</p>
             <p>{question.email}</p>
-            <button onClick={()=> deleteIt(question.id)}>delete</button>
+            <button data-theme="remove" onClick={()=> deleteIt(question.id)}>delete</button>
 
           </div>
         ))}

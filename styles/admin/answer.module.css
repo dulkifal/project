@@ -18,3 +18,16 @@
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
     border-radius: 12px;
 }
+ .answer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 20px;
+     
+    font-weight: bold;
+    font-size: 1.2rem; 
+    
+    
+    border-bottom: 1px solid #e5e5e5;
+ }

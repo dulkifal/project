@@ -13,104 +13,19 @@ a {
 
 * {
   box-sizing: border-box;
-  font-family: "andulus";
+  /* font-family: "andalus"; */
+  font-family: "Droid Arabic Naskh", arabesque, sans-serif;
 }
-
-.navbar h1 {
-  margin-bottom: 0;
-  text-align: center;
-}
-.navItems {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0 20px;
-  height: 60px;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #fff;
-  background-color:#193043;
-  border-bottom: 1px solid #e5e5e5;
-}
-.navItems span {
-  display: flex;
-}
-.navItems a:hover {
-  color: #81c686;
-  transition: all 0.3s ease-in-out;
-}
-.navItems .active {
-  border-bottom: 2px solid #81c686;
-}
- .changeLang select {
- padding: .5rem;
-  border-radius: .5rem;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  font-weight: bold;
-
-}
-.search {
-  position: absolute;
-  left: 25px;
-}
-
-.search form {
-  display: flex;
-  direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0 20px;
-  border-radius: 1rem;
-  font-weight: bold;
-  background: rgba(255, 255, 255, 0.865);
-}
-.search input {
-  width: 100%;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  font-weight: bold;
-   background:  rgba(255, 255, 255, 0.149);
-
-}
-
-.search img {
-  cursor: pointer;
-}
-footer{
+footer {
   position: relative;
   bottom: 0;
-  
 }
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0 20px;
-
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #fff;
-  background-color:#193043;
-  border-top: 1px solid #e5e5e5;
-}
-.footer a:hover {
+/* nav active */
+.active {
   color: #81c686;
   transition: all 0.3s ease-in-out;
 }
 
-.footer__content__right__links li {
-  list-style: none;
-  display: inline-block;
-  margin-right: 1rem;
-}
 
 button[data-theme="add"] {
   background-color: #193043;
@@ -141,12 +56,3 @@ button[data-theme="remove"] {
   font-weight: bold;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-} */

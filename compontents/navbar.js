@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
- 
+import s from "./comp.module.css";
 
 const Navbar = () => {
   const router = useRouter();
-   
+  const [active, setActive] = useState(false);
+
   const isActive = (r) => {
     if (r === router.pathname) {
       return "active";
@@ -13,27 +14,46 @@ const Navbar = () => {
       return "";
     }
   };
-   
- 
-  
-  return (
-    <nav className="navbar" dir="rtl">
-      <h1> الفقه الشافعية</h1>
-      <div className="navItems" >
-        <ChangeLang />
+  const toggleNav = () => {
+    
+    setActive(!active);
+  };
 
-        <Link  href="/" className={isActive("/")}  >الرئيسة</Link>
-        <Link  href="/fatwa/ask"  className={isActive("/fatwa/ask")}>اسأل</Link>
-        <Link  href="/program" className={isActive("/program")}  >البرامج</Link>
-        <Link  href="/about" className={isActive("/about")}  > نبذة عنا</Link>
-        <Link  href="/admin/login"  className={isActive("/admin/login")}>مشرف</Link>
-         
+  let showing = active ? "show" : "";
+  const navLinksData = [
+    { title: "الرئيسة", path: "/" },
+    { title: "اسأل", path: "/fatwa/ask" },
+    { title: "البرامج", path: "/program" },
+    { title: "نبذة عنا", path: "/about" },
+    { title: "مشرف", path: "/admin/login" },
+  ];
+ 
+
+
+
+  return (
+    <nav className={s.navbar} dir="rtl">
+      <h1> الفقه الشافعية</h1>
+      <div className={s.navItems}>
+        <ChangeLang />
+         <div className={s.humburger}>
+          <img src="/icons/hamburger.png" alt="" onClick={() => toggleNav()} />
+        </div>
+       
+
         <Search />
+        <div className={`${s.navLinks} ${s.showing}`}>
+          {navLinksData.map((link, index) => (
+             <Link href={link.path} className={isActive(link.path)} onClick={()=>setActive(!active)} >
+        {link.title}
+      </Link>
+          ))}
+
+        </div>
       </div>
     </nav>
   );
- 
-}
+};
 
 export default Navbar;
 
@@ -46,17 +66,20 @@ const Search = () => {
     setTerm("");
   };
   return (
-    <div className="search">
-      <form  >
+    <div className={s.search}>
+      <form>
         <input
           type="text"
           value={term}
           placeholder="كلمة البحث"
           onChange={(e) => setTerm(e.target.value)}
         />
-      <img src="/icons/search.png" width={20} height={20} 
-      onClick={handleSubmit}
-      />
+        <img
+          src="/icons/search.png"
+          width={20}
+          height={20}
+          onClick={handleSubmit}
+        />
       </form>
     </div>
   );
@@ -64,11 +87,11 @@ const Search = () => {
 
 const ChangeLang = () => {
   return (
-    <div className="changeLang">
+    <div className={s.changeLang}>
       <select name="" id="">
         <option value="ar">عربي</option>
         <option value="ur">اردو</option>
       </select>
-       </div>
+    </div>
   );
-}
+};

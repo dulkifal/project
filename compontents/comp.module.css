@@ -1,0 +1,164 @@
+.navbar h1 {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 0;
+  text-align: center;
+  font-weight: 100;
+  font-size: 2rem;
+  color: rgb(240, 240, 240);
+  background-color: #193043;
+  font-family: andalus;
+}
+.navItems {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 20px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #193043;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+
+.navItems .navLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.navItems span {
+  display: flex;
+}
+.navItems a:hover {
+  color: #81c686;
+  transition: all 0.3s ease-in-out;
+}
+ 
+.changeLang select {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.search {
+  position: absolute;
+  left: 25px;
+}
+
+.search form {
+  display: flex;
+  direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 20px;
+  border-radius: 1rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.865);
+}
+.search input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.149);
+}
+
+.search img {
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 20px;
+
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #193043;
+  border-top: 1px solid #e5e5e5;
+}
+.footer a:hover {
+  color: #81c686;
+  transition: all 0.3s ease-in-out;
+}
+
+.footerLinks li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.humburger {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #193043;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+
+/* small devices */
+@media (max-width: 768px) {
+  .navItems {
+    height: 4rem;
+  }
+  .navItems .navLinks {
+    display: none;
+  }
+  .navLinks .active {
+    border-bottom: none;
+  }
+  .navItems .show {
+    display: block;
+    top: 134px;
+    width: 100%;
+    background: #193043;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .navItems .show a {
+    padding-right: 1rem;
+    display: block;
+  }
+  .changeLang {
+    display: fixed;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0.5rem;
+  }
+
+  .search {
+    position: absolute;
+    left: 0;
+    width: 80%;
+  }
+  .humburger {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 70px;
+  }
+  .humburger img {
+    width: 30px;
+    height: 30px;
+  }
+}

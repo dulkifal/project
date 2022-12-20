@@ -24,8 +24,8 @@ const Navbar = () => {
 
         <Link  href="/" className={isActive("/")}  >الرئيسة</Link>
         <Link  href="/fatwa/ask"  className={isActive("/fatwa/ask")}>اسأل</Link>
-        <Link  href="/" className={isActive("/")}  >البرامج</Link>
-        <Link  href="/" className={isActive("/")}  > نبذة عنا</Link>
+        <Link  href="/program" className={isActive("/program")}  >البرامج</Link>
+        <Link  href="/about" className={isActive("/about")}  > نبذة عنا</Link>
         <Link  href="/admin/login"  className={isActive("/admin/login")}>مشرف</Link>
          
         <Search />

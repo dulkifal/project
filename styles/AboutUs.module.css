@@ -1,0 +1,29 @@
+.aboutUsPage{
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    font-size: 20px;
+}
+.hodMessage{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    font-size: 20px;
+}
+.hodMessage p{
+    font-size: 20px;
+}
+.hodMessage h3{
+    font-size: 30px;
+    font-weight: 600;
+}
+.dip{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    font-size: 20px;
+}

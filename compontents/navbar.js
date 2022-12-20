@@ -19,7 +19,6 @@ const Navbar = () => {
     setActive(!active);
   };
 
-  let showing = active ? "show" : "";
   const navLinksData = [
     { title: "الرئيسة", path: "/" },
     { title: "اسأل", path: "/fatwa/ask" },
@@ -42,7 +41,9 @@ const Navbar = () => {
        
 
         <Search />
-        <div className={`${s.navLinks} ${s.showing}`}>
+        {/* add two class to it */}
+        
+        <div className={`${s.navLinks}  ${active ? s.show : ''}`   }  >
           {navLinksData.map((link, index) => (
              <Link href={link.path} className={isActive(link.path)} onClick={()=>setActive(!active)} >
         {link.title}

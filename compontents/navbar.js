@@ -20,15 +20,14 @@ const Navbar = () => {
     <nav className="navbar" dir="rtl">
       <h1> الفقه الشافعية</h1>
       <div className="navItems" >
+        <ChangeLang />
 
         <Link  href="/" className={isActive("/")}  >الرئيسة</Link>
         <Link  href="/fatwa/ask"  className={isActive("/fatwa/ask")}>اسأل</Link>
         <Link  href="/" className={isActive("/")}  >البرامج</Link>
         <Link  href="/" className={isActive("/")}  > نبذة عنا</Link>
         <Link  href="/admin/login"  className={isActive("/admin/login")}>مشرف</Link>
-        <div className="strach">
-
-        </div>
+         
         <Search />
       </div>
     </nav>
@@ -52,7 +51,7 @@ const Search = () => {
         <input
           type="text"
           value={term}
-          placeholder="ابحث"
+          placeholder="كلمة البحث"
           onChange={(e) => setTerm(e.target.value)}
         />
       <img src="/icons/search.png" width={20} height={20} 
@@ -62,3 +61,14 @@ const Search = () => {
     </div>
   );
 };
+
+const ChangeLang = () => {
+  return (
+    <div className="changeLang">
+      <select name="" id="">
+        <option value="ar">عربي</option>
+        <option value="ur">اردو</option>
+      </select>
+       </div>
+  );
+}

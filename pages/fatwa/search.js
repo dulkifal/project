@@ -25,7 +25,7 @@ const SearchPage = () => {
         <h1> نتيجة البحث</h1>
       <div className={s.aswerContainer}></div>
       {results.map((result) => (
-        <div key={result.id} className={s.card}>
+        <div key={result.id} className={s.searchCard}>
           <h3>السؤال: {result.question}</h3>
           <label htmlFor="">الجواب :</label>
           <p> {result.answer}</p>

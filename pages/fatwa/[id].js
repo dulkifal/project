@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import {getData} from '../../lib/baseApi';
+import s from "../../styles/admin/answer.module.css";
+
 
 
 const Fatwa = ( ) => {
@@ -15,8 +17,8 @@ const Fatwa = ( ) => {
   }, []);
 
   return (
-    <div>
-      <h1>{fatwa.question}</h1>
+    <div className={s.searchCard}>
+      <h3>{fatwa.question}</h3>
       <p>{fatwa.answer}</p>
     </div>
   );

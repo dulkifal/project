@@ -115,29 +115,33 @@
 /* small devices */
 @media (max-width: 768px) {
   .navItems {
-    height: 4rem;
+    
+    
+    
+    
   }
   .navItems .navLinks {
-    display: none;
+   width: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+
   }
   .navLinks .active {
     border-bottom: none;
   }
   .navItems .show {
-    display: block;
-    top: 134px;
-    width: 100%;
-    background: #193043;
+    display:block;
     display: flex;
-    flex-direction: column;
-    position: relative;
-    align-items: flex-start;
-    gap: 1.5rem;
+     flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    width: 50%;
+   right: 0;
+  height: 100vh;  
+    background: #193043;
   }
-  .navItems .show a {
-    padding-right: 1rem;
-    display: block;
-  }
+   
   .changeLang {
     display: fixed;
     position: absolute;
@@ -156,6 +160,7 @@
     position: absolute;
     right: 1rem;
     top: 70px;
+    z-index: 10;
   }
   .humburger img {
     width: 30px;

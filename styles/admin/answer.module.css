@@ -42,3 +42,14 @@
     font-size: 1.2rem;
 
  }
+ @media (max-width: 764px) {
+    .answer{
+        flex-direction: column;
+        gap: 0.5rem;
+         
+        
+    }
+    .answer textarea{
+        width: 100%;
+    }
+ }

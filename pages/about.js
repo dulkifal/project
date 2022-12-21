@@ -3,7 +3,7 @@ import s from "../styles/AboutUs.module.css";
 const AboutUs = () => {
   return (
     <div className={s.aboutUsPage}>
-      <h1> نبذة عنا</h1>
+       
       <div className={s.hodMessage}>
       <h3>رسالة من رئيس القسم</h3>
       <p>

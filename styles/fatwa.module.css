@@ -7,6 +7,7 @@
     display: flex ;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
     height: 70vh;
     margin: 0 auto;
@@ -22,6 +23,7 @@
     padding: 10px;
     border-radius: 1rem;
     line-height: 2rem;
+    gap: 1rem;
 }
 .askContainer form input {
     width: 100%;
@@ -39,16 +41,14 @@
     padding: 10px;
     margin-bottom: 10px;
 }
-.askContainer form button {
-    width: 10%;
-    margin: 0 auto;
-    height: 2rem;
-    border: 1px solid #ede2e2;
-    border-radius: 4px;
-    padding: 10px;
-    margin-bottom: 10px;
-    background: #a6f9bb;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
+ 
+
+
+@media (max-width: 768px) {
+    .askContainer form {
+        width: 100%;
+        font-size: 2rem;
+    }
 }
+    
+ 

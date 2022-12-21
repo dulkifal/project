@@ -3,13 +3,13 @@ import styles from '../../styles/fatwa.module.css'
 const Ask = () => {
   return (
     <div className={styles.askContainer}  >
-      <p>Ask a Question</p>
+      <h4>اطرح سؤالاً من خلال استكمال النموذج التالي</h4>
       <form  >
        
         <textarea type="textarea" id="question"  placeholder=" سؤال"  />
         <input type="text" id="name" placeholder="اسم" />
         <input type="email" id="email" placeholder="البريد الإلكتروني" />
-        <button onClick={submitQuestion}>ارسال</button>
+        <button  data-theme="add" onClick={submitQuestion}>ارسال</button>
 
       </form>
     </div>

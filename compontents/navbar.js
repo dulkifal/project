@@ -34,7 +34,6 @@ const Navbar = () => {
     <nav className={s.navbar} dir="rtl">
       <h1> الفقه الشافعية</h1>
       <div className={s.navItems}>
-        <ChangeLang />
          <div className={s.humburger}>
           <img src="/icons/hamburger.png" alt="" onClick={() => toggleNav()} />
         </div>
@@ -44,6 +43,7 @@ const Navbar = () => {
         {/* add two class to it */}
         
         <div className={`${s.navLinks}  ${active ? s.show : ''}`   }  >
+        <ChangeLang />
           {navLinksData.map((link, index) => (
              <Link href={link.path} className={isActive(link.path)} onClick={()=>setActive(!active)} >
         {link.title}

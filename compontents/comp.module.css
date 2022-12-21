@@ -1,3 +1,7 @@
+.navItems *{
+  font-family: "Montserrat", sans-serif;
+}
+
 .navbar h1 {
   margin: 0;
   padding-top: 10px;
@@ -28,6 +32,7 @@
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+
 }
 .navItems span {
   display: flex;
@@ -75,7 +80,9 @@
 .search img {
   cursor: pointer;
 }
-
+.footer *{
+  font-family: "Montserrat", sans-serif;
+}
 .footer {
   display: flex;
   justify-content: center;
@@ -99,6 +106,7 @@
   display: inline-block;
   margin-right: 1rem;
   border-bottom: #fff  1px solid;
+
 }
 
 .humburger {

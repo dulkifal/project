@@ -14,10 +14,34 @@ a {
 * {
   box-sizing: border-box;
   /* font-family: "andalus"; */
-  font-family: "Droid Arabic Naskh", arabesque, sans-serif;
+  font-family:   Naskh ;
+   
   margin: 0;
   padding: 0;
 }
+
+@font-face {
+    font-family: 'Droid Arabic Kufi';
+        src: url('DroidArabicKufiRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+
+@font-face {
+
+	font-family: "Naskh";
+
+	src: url("UthmanTN1.otf"); /* IE 9 */
+
+	src: url("UthmanTN1.otf?") format("eot"), /* IE 6-8 */
+
+	url("UthmanTN1.otf") format("opentype"), /* Other browsers */
+
+	url("UthmanTN1.otf") format("truetype"); /* Safari, Android, iOS */
+
+}
+
+
 footer {
   position: relative;
   bottom: 0;

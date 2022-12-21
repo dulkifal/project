@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import s from "./comp.module.css";
+import { getCookie } from "../lib/getCookie";
 
 const Navbar = () => {
   const router = useRouter();
   const [active, setActive] = useState(false);
+
  
 
   const isActive = (r) => {
@@ -88,13 +90,16 @@ const Search = () => {
 };
 
 const ChangeLang = () => {
+  const [lang, setLang] = useState("ar");
+useEffect(() => {
 
- 
+  setLang(getCookie("lang"));
+}, [])
   return (
     <div className={s.changeLang}  
      
      >
-      <select name="" id="" onChange={(e)=>
+      <select name="" id="" value={lang} onChange={(e)=>
      { document.cookie = `lang=${e.target.value}`,
 
       window.location.reload()}

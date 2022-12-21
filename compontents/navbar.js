@@ -6,6 +6,7 @@ import s from "./comp.module.css";
 const Navbar = () => {
   const router = useRouter();
   const [active, setActive] = useState(false);
+ 
 
   const isActive = (r) => {
     if (r === router.pathname) {
@@ -45,7 +46,7 @@ const Navbar = () => {
         <div className={`${s.navLinks}  ${active ? s.show : ''}`   }  >
         <ChangeLang />
           {navLinksData.map((link, index) => (
-             <Link href={link.path} className={isActive(link.path)} onClick={()=>setActive(!active)} >
+             <Link href={link.path} className={isActive(link.path)} onClick={()=>setActive(!active)}  key={index}>
         {link.title}
       </Link>
           ))}
@@ -87,9 +88,17 @@ const Search = () => {
 };
 
 const ChangeLang = () => {
+
+ 
   return (
-    <div className={s.changeLang}>
-      <select name="" id="">
+    <div className={s.changeLang}  
+     
+     >
+      <select name="" id="" onChange={(e)=>
+     { document.cookie = `lang=${e.target.value}`,
+
+      window.location.reload()}
+      }>
         <option value="ar">عربي</option>
         <option value="ur">اردو</option>
       </select>

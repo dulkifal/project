@@ -4,15 +4,20 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import s from "../styles/Home.module.css";
 import { getData } from "../lib/baseApi";
+import { getCookie } from "../lib/getCookie";
 
 export default function Home() {
   const [fatwas, setFatwas] = useState([]);
+  const [lang, setLang] = useState(" ");
+
   useEffect(() => {
     getData("/api/fatwa/ask").then((data) => {
-      setFatwas(data);
+      setLang(getCookie("lang"));
+     
+      setFatwas( data.filter((fatwa) => fatwa.lang === lang));
     });
-  }, []);
-
+  }, [lang]);
+   
   return (
     <div className={s.container}>
       <Head>

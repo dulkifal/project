@@ -18,7 +18,7 @@ const ShowQuestions = () => {
 
   const addAnswer = (id,index) => {
     const answer = document.getElementById(index).value;
-    const lang = document.getElementById('l'+index).value ? document.getElementById('l'+index).value : 'arb';
+    const lang = document.getElementById('l'+index).value ? document.getElementById('l'+index).value : 'ar';
     patchData("/api/fatwa/ask", { id, answer ,lang}
      ).then(() => {
       fetchQuestions();
@@ -49,8 +49,8 @@ const ShowQuestions = () => {
             {/* dropdown for select language */}
             <label htmlFor="lang"> اختر لغة</label>
             <select onChange={(e)=> changeLang(e.target.value)} id={'l'+index} defaultValue={question.lang} >
-              <option value="arb">عربية</option>
-              <option value="urd">اردو</option>
+              <option value="ar">عربية</option>
+              <option value="ur">اردو</option>
 
             </select>
            

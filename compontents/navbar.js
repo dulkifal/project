@@ -8,8 +8,6 @@ const Navbar = () => {
   const router = useRouter();
   const [active, setActive] = useState(false);
 
- 
-
   const isActive = (r) => {
     if (r === router.pathname) {
       return "active";
@@ -18,7 +16,6 @@ const Navbar = () => {
     }
   };
   const toggleNav = () => {
-    
     setActive(!active);
   };
 
@@ -29,30 +26,30 @@ const Navbar = () => {
     { title: "نبذة عنا", path: "/about" },
     { title: "مشرف", path: "/admin/login" },
   ];
- 
-
-
 
   return (
     <nav className={s.navbar} dir="rtl">
       <h1> الفقه الشافعية</h1>
       <div className={s.navItems}>
-         <div className={s.humburger}>
+        <div className={s.humburger}>
           <img src="/icons/hamburger.png" alt="" onClick={() => toggleNav()} />
         </div>
-       
 
         <Search />
         {/* add two class to it */}
-        
-        <div className={`${s.navLinks}  ${active ? s.show : ''}`   }  >
-        <ChangeLang />
-          {navLinksData.map((link, index) => (
-             <Link href={link.path} className={isActive(link.path)} onClick={()=>setActive(!active)}  key={index}>
-        {link.title}
-      </Link>
-          ))}
 
+        <div className={`${s.navLinks}  ${active ? s.show : ""}`}>
+          <ChangeLang />
+          {navLinksData.map((link, index) => (
+            <Link
+              href={link.path}
+              className={isActive(link.path)}
+              onClick={() => setActive(!active)}
+              key={index}
+            >
+              {link.title}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>
@@ -91,19 +88,20 @@ const Search = () => {
 
 const ChangeLang = () => {
   const [lang, setLang] = useState("ar");
-useEffect(() => {
-
-  setLang(getCookie("lang"));
-}, [])
+  useEffect(() => {
+    setLang(getCookie("lang"));
+  }, []);
   return (
-    <div className={s.changeLang}  
-     
-     >
-      <select name="" id="" value={lang} onChange={(e)=>
-     { document.cookie = `lang=${e.target.value}`,
-
-      window.location.reload()}
-      }>
+    <div className={s.changeLang}>
+      <select
+        name=""
+        id=""
+        value={lang}
+        onChange={(e) => {
+          (document.cookie = `lang=${e.target.value}`),
+            window.location.reload();
+        }}
+      >
         <option value="ar">عربي</option>
         <option value="ur">اردو</option>
       </select>

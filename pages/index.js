@@ -1,22 +1,26 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import s from "../styles/Home.module.css";
 import { getData } from "../lib/baseApi";
-import { getCookie } from "../lib/getCookie";
-
+ 
+import { LangContext } from "./_app";
+ 
+ 
 export default function Home() {
   const [fatwas, setFatwas] = useState([]);
-  const [lang, setLang] = useState(" ");
+  const {lang} = useContext(LangContext)
+   
 
   useEffect(() => {
     getData("/api/fatwa/ask").then((data) => {
-      setLang(getCookie("lang"));
+       
      
       setFatwas( data.filter((fatwa) => fatwa.lang === lang));
     });
   }, [lang]);
+  console.log(lang)
    
   return (
     <div className={s.container}>

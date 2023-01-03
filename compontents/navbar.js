@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import {   useState, useContext } from "react";
 import s from "./comp.module.css";
-import { getCookie } from "../lib/getCookie";
-
+import { LangContext } from "../pages/_app";
+ 
 const Navbar = () => {
   const router = useRouter();
   const [active, setActive] = useState(false);
@@ -87,10 +87,10 @@ const Search = () => {
 };
 
 const ChangeLang = () => {
-  const [lang, setLang] = useState("ar");
-  useEffect(() => {
-    setLang(getCookie("lang"));
-  }, []);
+
+   const  {lang, setLang} = useContext(LangContext )
+  
+  
   return (
     <div className={s.changeLang}>
       <select
@@ -98,8 +98,7 @@ const ChangeLang = () => {
         id=""
         value={lang}
         onChange={(e) => {
-          (document.cookie = `lang=${e.target.value}`),
-            window.location.reload();
+          setLang(e.target.value)
         }}
       >
         <option value="ar">عربي</option>

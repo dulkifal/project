@@ -22,6 +22,9 @@ const Navbar = () => {
   const navLinksData = [
     { title: "الرئيسة", path: "/" },
     { title: "اسأل", path: "/fatwa/ask" },
+    {title:"المقالات",path:"/article"},
+    {title: "المزيد",path:"/fatwa"},
+    {title: "المسائل",path:"/problem"},
     { title: "البرامج", path: "/program" },
     { title: "نبذة عنا", path: "/about" },
     { title: "مشرف", path: "/admin/login" },

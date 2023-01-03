@@ -88,8 +88,8 @@
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  padding: 0 20px;
-
+  padding : 4rem 20px;
+  height: 60px;
   font-weight: bold;
   font-size: 1.2rem;
   color: #fff;
@@ -140,6 +140,10 @@
     right: 0;
     height: 100vh;
     background: #193043;
+  }
+  .footer{
+    
+    height: 200px;
   }
 
    

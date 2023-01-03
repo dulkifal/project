@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <nav className={s.navbar} dir="rtl">
-      <h1> الفقه الشافعية</h1>
+      <h1>  التفقه</h1>
       <div className={s.navItems}>
         <div className={s.humburger}>
           <img src="/icons/hamburger.png" alt="" onClick={() => toggleNav()} />

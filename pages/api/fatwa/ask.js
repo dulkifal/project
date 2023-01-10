@@ -27,7 +27,7 @@ function addQuestion(req, res, db) {
   const { question, name, email } = req.body;
   db.query(
     `
-    INSERT INTO questions (question, name, email)
+    INSERT INTO fatwas (question, name, email)
     VALUES (?, ?, ?)
     `,
     [question, name, email],
@@ -41,12 +41,12 @@ function addQuestion(req, res, db) {
 function getQuesions(req, res, db) {
   let valid = validateUser(req, res);
   valid
-    ? db.query(`SELECT * FROM questions`, (error, results, fields) => {
+    ? db.query(`SELECT * FROM fatwas`, (error, results, fields) => {
         if (error) throw error;
         res.send(results);
       })
     :
-      db.query(`SELECT * FROM questions WHERE answer IS NOT NULL`, (error, results, fields) => {
+      db.query(`SELECT * FROM fatwas WHERE answer IS NOT NULL`, (error, results, fields) => {
       if (error) throw error;
       res.send(results);
     })
@@ -59,7 +59,7 @@ function addAnswer(req, res, db) {
   valid
     ? db.query(
         `
-    UPDATE questions
+    UPDATE fatwas
     SET answer = ?, lang = ?
     WHERE id = ?
 
@@ -81,7 +81,7 @@ function deleteQuestion(req, res, db) {
   valid
     ? db.query(
         `
-    DELETE FROM questions
+    DELETE FROM fatwas
     WHERE id = ?
     `,
         [id],

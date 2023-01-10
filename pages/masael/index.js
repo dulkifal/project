@@ -8,18 +8,18 @@ import { getData } from "../../lib/baseApi";
 import { LangContext } from "../_app";
  
  
-export default function Article() {
-  const [article,  setArticle] = useState([]);
+export default function Masael() {
+  const [masala, setMasala] = useState([]);
   const {lang} = useContext(LangContext)
    
 
   useEffect(() => {
-    getData("/api/article").then((data) => {
-        setArticle(data.filter((article) => article.lang === lang)
+    getData("/api/masael").then((data) => {
+        setMasala(data.filter((masala) => masala.lang === lang)
         );
     });
   }, [lang]);
-  console.log(lang)
+  
    
   return (
     <div className={s.container}>
@@ -33,11 +33,11 @@ export default function Article() {
 
         <div className={s.blogs}>
           {
-            article.map((article) => (
-            <div key={article.id} className={s.card}>
-                <Link href={`/article/${article.id}`}>
-                <h4> {article.title}</h4>
-                <p>{article.content.slice(0,100)}....</p>
+            masala.map((masala) => (
+            <div key={masala.id} className={s.card}>
+                <Link href={`/article/${masala.id}`}>
+                <h4> {masala.title}</h4>
+                <p>{masala.content.slice(0,100)}....</p>
                 </Link>
             </div>
 

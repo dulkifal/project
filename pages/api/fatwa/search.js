@@ -19,7 +19,7 @@ function getSearchedFatwas(req, res) {
   valid ? 
 
 db.query(
-  `SELECT * FROM questions WHERE (question LIKE '%${term}%' OR answer LIKE '%${term}%') AND answer IS NOT NULL`,
+  `SELECT * FROM fatwas WHERE (question LIKE '%${term}%' OR answer LIKE '%${term}%') AND answer IS NOT NULL`,
   (error, results, fields) => {
     if (error) throw error;
     res.send(results);
@@ -30,7 +30,7 @@ db.query(
 :
 db.query(
   `
-  SELECT * FROM questions WHERE (question LIKE '%${term}%' OR answer LIKE '%${term}%') AND answer IS NOT NULL
+  SELECT * FROM fatwas WHERE (question LIKE '%${term}%' OR answer LIKE '%${term}%') AND answer IS NOT NULL
   `,
   (error, results, fields) => {
     if (error) throw error;

@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className={s.container}>
       <Head>
-        <title> الفقه الشافعية</title>
+        <title>  التفقه</title>
         <meta name="description" content=" قسم الفقه وأصوله" />
       </Head>
 

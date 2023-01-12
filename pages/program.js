@@ -16,7 +16,7 @@ const ProgramsPage = () => {
 
   return (
     <div>
-      <h3>الرامج</h3>
+      <h3>البرامج</h3>
       <ul>
         {programs.map((program) => (
           <li key={program.id}>

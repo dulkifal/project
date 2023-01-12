@@ -23,7 +23,7 @@ const Navbar = () => {
     { title: "الرئيسة", path: "/" },
     { title: "اسأل", path: "/fatwa/ask" },
     {title:"المقالات",path:"/article"},
-    {title: "المزيد",path:"/fatwa"},
+    {title: "الفتاوى",path:"/fatwa"},
     {title: "المسائل",path:"/masael"},
     { title: "البرامج", path: "/program" },
     { title: "نبذة عنا", path: "/about" },

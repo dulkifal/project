@@ -80,6 +80,9 @@
 .search img {
   cursor: pointer;
 }
+.main {
+  height: 100%;
+}
 .footer *{
   font-family: "Montserrat", sans-serif;
 }

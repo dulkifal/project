@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
 
-      <main dir="rtl">{children}</main>
+      <main dir="rtl" className={s.main}>{children}</main>
       <Footer />
       <AnalyticsWrapper />
     </>

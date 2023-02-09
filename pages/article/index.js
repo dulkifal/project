@@ -19,7 +19,7 @@ export default function Article() {
         );
     });
   }, [lang]);
-  console.log(lang)
+   
    
   return (
     <div className={s.container}>

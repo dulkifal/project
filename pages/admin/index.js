@@ -14,6 +14,9 @@ export default function Admin() {
       <Link href="/admin/questions">
       <button >عرض الأسئلة</button>
       </Link>
+      <Link href="/admin/article">
+      <button >عرض المقالات</button>
+      </Link>
       </div>
 
     

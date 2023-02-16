@@ -16,10 +16,12 @@ const ShowQuestions = () => {
       });
   };
 
-  const addAnswer = (id,index) => {
+  const addAnswer = (id,index,) => {
+    const question = document.getElementById(index + 'q').value;
+    
     const answer = document.getElementById(index).value;
     const lang = document.getElementById('l'+index).value ? document.getElementById('l'+index).value : 'ar';
-    patchData("/api/fatwa/ask", { id, answer ,lang}
+    patchData("/api/fatwa/ask", { id, question, answer ,lang}
      ).then(() => {
       fetchQuestions();
     });
@@ -33,7 +35,7 @@ const ShowQuestions = () => {
     });
   };
   const changeLang = (lang) => {
-
+    
    
   }
 
@@ -55,8 +57,12 @@ const ShowQuestions = () => {
             </select>
            
              
-            <h3>السؤال: {question.question}</h3>
+            
             <div className={s.answer}>
+            <label htmlFor="question">السؤال:</label>
+            <textarea defaultValue={question.question} id={index + 'q'} rows={2} cols={150} />
+            
+
             <label htmlFor="aswer">الجواب:</label>
             <textarea defaultValue={question.answer}  id={index} rows={15} cols={150} />
             <button  data-theme="add" onClick={()=>addAnswer(question.id, index)}>add answer</button> 

@@ -40,7 +40,7 @@ export default function Home() {
 
                 {fatwa.question}
                 </h4>
-                <p>{fatwa.answer.slice(0,100)}....</p>
+                <p>{fatwa.answer?.slice(0,100)}....</p>
                 </Link>
             </div>
           ))}

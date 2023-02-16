@@ -2,7 +2,6 @@ import validateUser from "../../../lib/validate";
 import db from "../../../lib/db";
 
 export default async function handler(req, res) {
-   
   const { method } = req;
   switch (method) {
     case "POST":
@@ -18,9 +17,6 @@ export default async function handler(req, res) {
     case "DELETE":
       deleteQuestion(req, res, db);
       break;
-
-   
-
   }
 }
 function addQuestion(req, res, db) {
@@ -45,26 +41,29 @@ function getQuesions(req, res, db) {
         if (error) throw error;
         res.send(results);
       })
-    :
-      db.query(`SELECT * FROM fatwas WHERE answer IS NOT NULL`, (error, results, fields) => {
-      if (error) throw error;
-      res.send(results);
-    })
+    : db.query(
+        `SELECT * FROM fatwas WHERE answer IS NOT NULL`,
+        (error, results, fields) => {
+          if (error) throw error;
+          res.send(results);
+        }
+      );
 }
 
 function addAnswer(req, res, db) {
   let valid = validateUser(req, res);
-  const { answer, id, lang } = req.body;
-  // add answer to the question with id
+  const { question, answer, id, lang } = req.body;
+  // update the question with the answer
+
   valid
     ? db.query(
         `
     UPDATE fatwas
-    SET answer = ?, lang = ?
+    SET question = ?, answer = ?, lang = ?
     WHERE id = ?
 
     `,
-        [answer, lang, id],
+        [question, answer, lang, id],
 
         (error, results, fields) => {
           if (error) throw error;

@@ -85,3 +85,14 @@ button[data-theme="remove"] {
   font-weight: bold;
 }
 
+ /* button for edit */
+  button[data-theme="edit"] {
+    background-color: #193043;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+  }

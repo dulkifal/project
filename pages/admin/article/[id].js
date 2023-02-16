@@ -30,6 +30,7 @@ const EditAricle = () => {
     const content = document.getElementById("content").value;
     const author = document.getElementById("author").value;
     const lang = document.getElementById('lang').value ? document.getElementById('lang').value : 'ar';
+    const published = document.getElementById('publish').checked ? 'true' : 'false';
 
     const data = {
       id,
@@ -37,6 +38,7 @@ const EditAricle = () => {
       content,
       author,
       lang,
+      published,
     };
     patchData(`/api/article`, data).then((data) => {
       // router.push("/admin/article");
@@ -61,10 +63,18 @@ const EditAricle = () => {
               <option value="ur">اردو</option>
 
             </select>
+            {/* checkbox for publish */}
+            <div> 
+              
+            <label htmlFor="lang">    نشر</label>
+            <input type="checkbox" name="publish" id="publish" />
+            </div>
+
+  
 
      
     </div>
-    <button onClick={()=>{submit(article.id)}}>تم تحريره</button>
+    <button data-theme="add" onClick={()=>{submit(article.id)}}>تم تحريره</button>
   
   </div>;
 }

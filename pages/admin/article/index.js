@@ -71,11 +71,11 @@ const Article = () => {
                  
                 {/* button for edit */}
                 <Link href={`/admin/article/${article.id}`}>
-                  <button>edit</button>
+                  <button data-theme="edit">edit</button>
                 </Link>
 
                 {/* button for delete */}
-                <button onClick={()=>{deleteArticle(article.id)}}>delete</button>
+                <button data-theme="remove" onClick={()=>{deleteArticle(article.id)}}>delete</button>
               
             </div>
           ))}
@@ -94,7 +94,7 @@ const Article = () => {
             </select>
             
 
-            <button onClick={()=>{addArticle()}}>add</button>
+            <button data-theme="add" onClick={()=>{addArticle()}}>add</button>
 
           </div>            
 

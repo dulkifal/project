@@ -4,11 +4,11 @@
 
 .navbar h1 {
   margin: 0;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   padding-bottom: 0;
   text-align: center;
   font-weight: 100;
-  font-size: 2rem;
+  font-size: 3rem;
   color: rgb(240, 240, 240);
   background-color: #193043;
   font-family: andalus;
@@ -83,8 +83,41 @@
 .main {
   height: 100%;
 }
+/* sidebar */
+
+
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  gap: 1rem;
+  height: 100%;
+  padding: 0.5rem;
+  border: 2px solid #0d6f1442;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.sideBar .question {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+
+  padding: 0.5rem;
+  border: 2px solid #0d6f1442;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.sideBar .socialMediaIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
 .footer *{
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
 }
 .footer {
   display: flex;
@@ -93,7 +126,7 @@
   gap: 1.5rem;
   padding : 4rem 20px;
   height: 60px;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 1.2rem;
   color: #fff;
   background-color: #193043;
@@ -124,6 +157,9 @@
 
 /* small devices */
 @media (max-width: 768px) {
+  .navbar {
+    z-index: 1;
+  }
   .navItems .navLinks {
     width: 0;
     height: 0;
@@ -143,6 +179,7 @@
     right: 0;
     height: 100vh;
     background: #193043;
+    z-index: 1;
   }
   .footer{
     

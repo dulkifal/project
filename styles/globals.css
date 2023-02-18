@@ -22,6 +22,11 @@ a {
 main{
   height: 80vh;
 }
+p{
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+}
 
 @font-face {
     font-family: 'Droid Arabic Kufi';
@@ -48,6 +53,7 @@ main{
 footer {
   position: relative;
   bottom: 0;
+  
 }
 /* nav active */
 .active {

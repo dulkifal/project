@@ -6,6 +6,7 @@ import s from "../styles/Home.module.css";
 import { getData } from "../lib/baseApi";
 
 import { LangContext } from "./_app";
+import Sidebar from "../compontents/sidebar";
 
 export default function Home() {
   const [fatwas, setFatwas] = useState([]);
@@ -56,31 +57,7 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className={s.sideBar}>
-          <div className={s.question}>
-            <Link href="/fatwa/ask">
-              <h3>اطرح سؤالك</h3>
-            </Link>
-          </div>
-          <div className={s.socialMedia}>
-            <h3>تابعنا على</h3>
-            <div className={s.socialMediaIcons}>
-              <Link href={"https://www.instagram.com/"}>
-                <Image src="/icons/instagram.png" width={30} height={30} />
-              </Link>
-              <Link href={"https://www.facebook.com/"}>
-                <Image src="/icons/facebook.png" width={30} height={30} />
-              </Link>
-              <Link href={"https://web.whatsapp.com/"}>
-                <Image src="/icons/whatsapp.png" width={30} height={30} />
-              </Link>
-              <Link href={"https://www.youtube.com/"}>
-                <Image src="/icons/youtube.png" width={30} height={30} />
-              </Link>
-            </div>
-          </div>
-          <Link href="/fatwa">المزيد</Link>
-        </aside>
+      <Sidebar/>
       </main>
     </div>
   );

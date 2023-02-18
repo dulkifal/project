@@ -13,6 +13,7 @@ const Layout = ({ children }) => {
     </>
   );
 };
+
 export default Layout;
 
 const Header = () => {
@@ -25,7 +26,7 @@ const Header = () => {
 
 const Footer = () => {
   return (
-    <footer dir="rtl">
+    <footer dir="rtl" style={{zIndex: 0}}>
       {/* footer of copy write */}
       <div className={s.footer}>
         <div>
@@ -59,6 +60,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </footer  >
   );
 };

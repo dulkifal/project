@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 13rem;
   grid-gap: 10px;
   padding: 10px;
+  height: 100%;
 }
 
 .blogs {
@@ -30,29 +31,6 @@
   scale: 1.02;
 }
 
-.sideBar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  padding: 0.5rem;
-  border: 2px solid #0d6f1442;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.sideBar .question {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  padding: 0.5rem;
-  border: 2px solid #0d6f1442;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
 
 /* small device */
 @media (max-width: 768px) {

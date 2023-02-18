@@ -4,79 +4,84 @@ import Link from "next/link";
 import { useEffect, useState, useContext } from "react";
 import s from "../styles/Home.module.css";
 import { getData } from "../lib/baseApi";
- 
+
 import { LangContext } from "./_app";
- 
- 
+
 export default function Home() {
   const [fatwas, setFatwas] = useState([]);
-  const {lang} = useContext(LangContext)
-   
+  const [articles, setArticles] = useState([]);
+  const { lang } = useContext(LangContext);
 
   useEffect(() => {
     getData("/api/fatwa/ask").then((data) => {
-       
-     
-      setFatwas( data.filter((fatwa) => fatwa.lang === lang));
+      setFatwas(data.filter((fatwa) => fatwa.lang === lang));
+    });
+    getData("/api/article").then((data) => {
+      setArticles(data.filter((article) => article.lang === lang));
     });
   }, [lang]);
-  console.log(lang)
-   
+
   return (
     <div className={s.container}>
       <Head>
-        <title>  التفقه</title>
+        <title> التفقه</title>
         <meta name="description" content=" قسم الفقه وأصوله" />
       </Head>
 
       <main className={s.main}>
-       
+        <div>
 
+          <h3>بعض من الفتاوى</h3>
         <div className={s.blogs}>
-          {fatwas.map((fatwa) => (
+
+          {fatwas.slice(0,6).map((fatwa) => (
             <div key={fatwa.id} className={s.card}>
               <Link href={`/fatwa/${fatwa.id}`}>
-                <h4>
-
-                {fatwa.question}
-                </h4>
-                <p>{fatwa.answer?.slice(0,100)}....</p>
-                </Link>
+                <h4>{fatwa.question}</h4>
+                <p>{fatwa.answer?.slice(0, 100)}....</p>
+              </Link>
             </div>
           ))}
         </div>
+        <h3>بعض من المقالات</h3>
+        <div className={s.blogs}>
+          {articles.slice(0,6).map((article) => (
+            <div key={article.id} className={s.card}>
+              <Link href={`/article/${article.id}`}>
+                <h4>{article.title}</h4>
+                <p>{article.content?.slice(0, 100)}....</p>
+              </Link>
+              </div>
+          ))}
+          </div>
+        </div>
+
         <aside className={s.sideBar}>
           <div className={s.question}>
-             <Link href="/fatwa/ask">
-            <h3>اطرح سؤالك</h3>
-          </Link>
-
-
+            <Link href="/fatwa/ask">
+              <h3>اطرح سؤالك</h3>
+            </Link>
           </div>
           <div className={s.socialMedia}>
             <h3>تابعنا على</h3>
             <div className={s.socialMediaIcons}>
-              <Link href={'https://www.instagram.com/'}>
-              <Image src="/icons/instagram.png" width={30} height={30} />
+              <Link href={"https://www.instagram.com/"}>
+                <Image src="/icons/instagram.png" width={30} height={30} />
               </Link>
-              <Link href={'https://www.facebook.com/'}>
-              <Image src="/icons/facebook.png" width={30} height={30} />
+              <Link href={"https://www.facebook.com/"}>
+                <Image src="/icons/facebook.png" width={30} height={30} />
               </Link>
-              <Link href={'https://web.whatsapp.com/'}>
-              <Image src="/icons/whatsapp.png" width={30} height={30} />
+              <Link href={"https://web.whatsapp.com/"}>
+                <Image src="/icons/whatsapp.png" width={30} height={30} />
               </Link>
-              <Link href={'https://www.youtube.com/'}>
-              <Image src="/icons/youtube.png" width={30} height={30} />
+              <Link href={"https://www.youtube.com/"}>
+                <Image src="/icons/youtube.png" width={30} height={30} />
               </Link>
             </div>
           </div>
-          <Link href="/fatwa">
-            المزيد
-          </Link>
-
+          <Link href="/fatwa">المزيد</Link>
         </aside>
       </main>
     </div>
-
   );
 }

@@ -25,7 +25,7 @@ const Navbar = () => {
     {title:"المقالات",path:"/article"},
     {title: "الفتاوى",path:"/fatwa"},
     {title: "المسائل",path:"/masael"},
-    { title: "البرامج", path: "/program" },
+    // { title: "البرامج", path: "/program" },
     { title: "نبذة عنا", path: "/about" },
     { title: "مشرف", path: "/admin/login" },
   ];

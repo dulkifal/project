@@ -62,50 +62,63 @@ const Article = () => {
 
               <p>{article.create_time.slice(0, 10)}</p>
 
-<div   >
-              {/* button for edit */}
-              <Link href={`/admin/article/${article.id}`}>
-                <button data-theme="edit">edit</button>
-              </Link>
+              <div>
+                {/* button for edit */}
+                <Link href={`/admin/article/${article.id}`}>
+                  <button data-theme="edit">edit</button>
+                </Link>
 
-              {/* button for delete */}
+                {/* button for delete */}
 
-              <button
-                data-theme="remove"
-                onClick={() => {
-                  deleteArticle(article.id);
-                }}
+                <button
+                  data-theme="remove"
+                  onClick={() => {
+                    deleteArticle(article.id);
+                  }}
                 >
-                delete
-              </button>
-                </div>
+                  delete
+                </button>
+              </div>
             </div>
           ))}
           {/* div for adding new articles */}
-        </div>
-          <div className={s.card}>
-            {/* input area for adding new article */}
-            <form action="">
-              <input type="text" placeholder="title" id="newTitle" />
-              <input type="text" placeholder="content" id="newContent" />
-              <input type="text" placeholder="author" id="newAutor" />
-              {/* dropdown for select language */}
-              <label htmlFor="lang"> اختر لغة</label>
-              <select id={"newLang"}>
-                <option value="ar">عربية</option>
-                <option value="ur">اردو</option>
-              </select>
+       
+        <div className={s.newCard}>
+          {/* input area for adding new article */}
+          <form action="" className={s.form}>
+            <textarea
+              type="text"
+              placeholder="title"
+              id="newTitle"
+              rows={2}
+              cols={114}
+            />
+            <textarea
+              type="text"
+              placeholder="content"
+              id="newContent"
+              rows={3}
+              cols={114}
+            />
+            <input type="text" placeholder="author" id="newAutor" />
+            {/* dropdown for select language */}
+            <label htmlFor="lang"> اختر لغة</label>
+            <select id={"newLang"}>
+              <option value="ar">عربية</option>
+              <option value="ur">اردو</option>
+            </select>
 
-              <button
-                data-theme="add"
-                onClick={() => {
-                  addArticle();
-                }}
-              >
-                add
-              </button>
-            </form>
-          </div>
+            <button
+              data-theme="add"
+              onClick={() => {
+                addArticle();
+              }}
+            >
+              add
+            </button>
+          </form>
+        </div>
+         </div>
       </main>
     </div>
   );

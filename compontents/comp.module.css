@@ -116,9 +116,7 @@
   justify-content: center;
   gap: 1rem;
 }
-.footer *{
-  /* font-family: "Montserrat", sans-serif; */
-}
+ 
 .footer {
   display: flex;
   justify-content: center;

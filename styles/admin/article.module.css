@@ -26,6 +26,24 @@
   transition: all 0.3s ease-in-out;
   scale: 1.01;
 }
+.newCard{
+    align-items: center;
+}
+
+.newCard form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem;
+   
+ border: 2px solid #0d6f1442;
+  border-radius: 5px;
+
+    
+}
+ 
 
 .editArticle {
   background-color: #f5f5f5;

@@ -67,7 +67,7 @@ const EditAricle = () => {
             <div> 
               
             <label htmlFor="lang">    نشر</label>
-            <input type="checkbox" name="publish" id="publish" />
+            <input type="checkbox" name="publish" id="publish" checked={article.published} />
             </div>
 
   

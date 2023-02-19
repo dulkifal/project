@@ -11,7 +11,7 @@ export default function Admin() {
       <h1>لوحة الادارة</h1>
       <div >
 
-      <Link href="/admin/questions">
+      <Link href="/admin/fatwa">
       <button >عرض الأسئلة</button>
       </Link>
       <Link href="/admin/article">

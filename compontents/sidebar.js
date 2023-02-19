@@ -14,16 +14,16 @@ const Sidebar = ()=>{
           <div className={s.socialMedia}>
             <h3>تابعنا على</h3>
             <div className={s.socialMediaIcons}>
-              <Link href={"https://www.instagram.com/"}>
+              <Link href={"https://www.instagram.com/dhiufiqdep/"}>
                 <Image src="/icons/instagram.png" width={30} height={30} />
               </Link>
               <Link href={"https://www.facebook.com/"}>
                 <Image src="/icons/facebook.png" width={30} height={30} />
               </Link>
-              <Link href={"https://web.whatsapp.com/"}>
+              <Link href={"https://wa.me/918089112587/"}>
                 <Image src="/icons/whatsapp.png" width={30} height={30} />
               </Link>
-              <Link href={"https://www.youtube.com/"}>
+              <Link href={"https://www.youtube.com/channel/UCQNaejvitIOx1dAYhf83FWQ"}>
                 <Image src="/icons/youtube.png" width={30} height={30} />
               </Link>
             </div>

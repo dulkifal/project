@@ -40,6 +40,6 @@ const Fatwas = () => {
     </div>
   )
 }
-
+ 
 
 export default Fatwas

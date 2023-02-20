@@ -20,7 +20,7 @@ export default Ask;
 function submitQuestion(e) {
   e.preventDefault();
 
-  fetch('/api/fatwa/ask', {
+  fetch('/api/fatwa', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

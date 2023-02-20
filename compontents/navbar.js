@@ -21,7 +21,7 @@ const Navbar = () => {
 
   const navLinksData = [
     { title: "الرئيسة", path: "/" },
-    { title: "اسأل", path: "/fatwa/ask" },
+    { title: "اسأل", path: "/fatwa" },
     {title:"المقالات",path:"/article"},
     {title: "الفتاوى",path:"/fatwa"},
     {title: "المسائل",path:"/masael"},

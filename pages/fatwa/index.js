@@ -13,7 +13,7 @@ const Fatwas = () => {
   const { lang } = useContext(LangContext);
 
   useEffect(() => {
-    getData("/api/fatwa/ask").then((data) => {
+    getData("/api/fatwa").then((data) => {
       setFatwas(data.filter((fatwa) => fatwa.lang === lang));
     });
   }, [lang]);

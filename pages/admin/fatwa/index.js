@@ -11,13 +11,13 @@ const ShowQuestions = () => {
   }, []);
 
   const fetchQuestions = () => {
-    getData("/api/fatwa/ask").then((data) => {
+    getData("/api/fatwa/").then((data) => {
       setQuestions(data);
     });
   };
 
   const deleteIt = (id) => {
-    deleteData("/api/fatwa/ask", {
+    deleteData("/api/fatwa/", {
       id,
     }).then(() => {
       fetchQuestions();

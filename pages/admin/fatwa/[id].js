@@ -34,7 +34,7 @@ const EditFatwa = () => {
     const lang = document.getElementById("lang").value
       ? document.getElementById("lang").value
       : "ar";
-    patchData("/api/fatwa/ask", { id, question, answer, lang }).then(() => {
+    patchData("/api/fatwa", { id, question, answer, lang }).then(() => {
       fetchFatwa();
     });
   };

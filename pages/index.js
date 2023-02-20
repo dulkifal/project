@@ -14,7 +14,7 @@ export default function Home() {
   const { lang } = useContext(LangContext);
 
   useEffect(() => {
-    getData("/api/fatwa/ask").then((data) => {
+    getData("/api/fatwa").then((data) => {
       setFatwas(data.filter((fatwa) => fatwa.lang === lang));
     });
     getData("/api/article").then((data) => {

@@ -7,7 +7,7 @@ const Sidebar = ()=>{
   return (
       <aside className={s.sideBar}>
           <div className={s.question}>
-            <Link href="/fatwa/ask">
+            <Link href="/fatwa">
               <h3>اطرح سؤالك</h3>
             </Link>
           </div>

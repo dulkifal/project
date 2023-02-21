@@ -1,36 +1,32 @@
-.adminPage{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 20px;
-    
-    
-    width: 100%;
-    height: 100%;
-   
+.adminPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 100%;
 }
 
-.table{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    border: 1px solid black;
-    border-collapse: collapse;
+.table {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-collapse: collapse;
 }
-.table td{
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 10px;
+.table td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
 }
-.table th{
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 10px;
+.table th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
 }
-.table tr{
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 10px;
+.table tr {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
 }

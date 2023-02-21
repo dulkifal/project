@@ -45,7 +45,7 @@ const Footer = () => {
                 <a href="/">الرئيسة</a>
               </li>
               <li>
-                <a href="/fatwa/">اسأل</a>
+                <a href="/fatwa/ask">اسأل</a>
               </li>
               {/* <li>
                 <a href="/">البرامج</a>

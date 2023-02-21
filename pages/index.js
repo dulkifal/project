@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useContext } from "react";
 import s from "../styles/Home.module.css";
-import { getData } from "../lib/baseApi";
+import { englishToArabic, getData } from "../lib/baseApi";
 
 import { LangContext } from "./_app";
 import Sidebar from "../compontents/sidebar";
@@ -34,11 +34,12 @@ export default function Home() {
 
           <h3>بعض من الفتاوى</h3>
         <div className={s.blogs}>
+          
 
           {fatwas.slice(0,6).map((fatwa) => (
             <div key={fatwa.id} className={s.card}>
               <Link href={`/fatwa/${fatwa.id}`}>
-                <h4>{fatwa.question}</h4>
+                <h4>{englishToArabic(fatwa.id)+ ': ' + fatwa.question }</h4>
                 <p>{fatwa.answer?.slice(0, 100)}....</p>
               </Link>
             </div>
@@ -49,7 +50,7 @@ export default function Home() {
           {articles.slice(0,6).map((article) => (
             <div key={article.id} className={s.card}>
               <Link href={`/article/${article.id}`}>
-                <h4>{article.title}</h4>
+                <h4>{englishToArabic(article.id)+ ': ' + article.title}</h4>
                 <p>{article.content?.slice(0, 100)}....</p>
               </Link>
               </div>

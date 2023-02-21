@@ -7,8 +7,15 @@ const Sidebar = ()=>{
   return (
       <aside className={s.sideBar}>
           <div className={s.question}>
-            <Link href="/fatwa">
-              <h3>اطرح سؤالك</h3>
+            <Link href="/fatwa/ask">
+              <h3>إن لم وجدت ما في نفسك هنا، فليسرع بسؤال</h3>
+            </Link>
+          </div>
+          <div className={s.question}>
+            <Link href="https://t.me/dulkifal">
+              {/* share telgram */}
+             
+              <h3>إن أردت نشر مقالتك اتصل بالمسؤول  في تلكرام </h3>
             </Link>
           </div>
           <div className={s.socialMedia}>

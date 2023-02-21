@@ -31,6 +31,7 @@ export default function Admin() {
             <th>رقم</th>
             <th>الأسئلة</th>
             <th>الجواب</th>
+            <th>تعديل</th>
             <th>نشر</th>
           </tr>
            {fatwa && fatwa.map((fatwa)=>(
@@ -38,6 +39,12 @@ export default function Admin() {
               <td>{fatwa.id}</td>
               <td>{fatwa.question}</td>
               <td>{fatwa.answer.slice(0,100)}</td>
+              <td>
+                {" "}
+                <Link href={`/admin/fatwa/${fatwa.id}`}>
+                  <button>تعديل</button>
+                </Link>
+              </td>
               {fatwa.published ? <td>منشور</td> : <td> غير منشور</td>}
 
             </tr>

@@ -35,7 +35,7 @@ export default function Masael() {
           {
             masala.map((masala) => (
             <div key={masala.id} className={s.card}>
-                <Link href={`/article/${masala.id}`}>
+                <Link href={`/masael/${masala.id}`}>
                 <h4> {masala.title}</h4>
                 <p>{masala.content.slice(0,100)}....</p>
                 </Link>

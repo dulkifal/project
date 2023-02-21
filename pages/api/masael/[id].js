@@ -4,7 +4,7 @@ const handler = (req, res) => {
   const { id } = req.query;
   db.query(
     `
-    SELECT * FROM  WHERE id = ?
+    SELECT * FROM masael WHERE id = ?
     `,
     [id],
     (error, results, fields) => {

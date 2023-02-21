@@ -32,10 +32,10 @@ export default function Article() {
         <div className={s.blogs}>
           {article && (
             <div key={article.id} className={s.card}>
-              <Link href={`/article/${article.id}`}>
+             
                 <h4> {article.title}</h4>
                 <p>{article.content} </p>
-              </Link>
+              
             </div>
           )}
         </div>

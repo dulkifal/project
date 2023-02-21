@@ -14,53 +14,48 @@ a {
 * {
   box-sizing: border-box;
   /* font-family: "andalus"; */
-  font-family:   Naskh ;
-   
+  font-family: Naskh;
+
   margin: 0;
   padding: 0;
 }
-main{
+main {
   height: 80vh;
 }
-p{
+p {
   font-size: 1.2rem;
   line-height: 1.5;
   margin: 1rem 0;
+  /* letter space */
+  letter-spacing: 0.3px;
 }
 
 @font-face {
-    font-family: 'Droid Arabic Kufi';
-        src: url('DroidArabicKufiRegular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-      }
-
-@font-face {
-
-	font-family: "Naskh";
-
-	src: url("UthmanTN1.otf"); /* IE 9 */
-
-	src: url("UthmanTN1.otf?") format("eot"), /* IE 6-8 */
-
-	url("UthmanTN1.otf") format("opentype"), /* Other browsers */
-
-	url("UthmanTN1.otf") format("truetype"); /* Safari, Android, iOS */
-
+  font-family: "Droid Arabic Kufi";
+  src: url("DroidArabicKufiRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
+@font-face {
+  font-family: "Naskh";
+
+  src: url("UthmanTN1.otf"); /* IE 9 */
+
+  src: url("UthmanTN1.otf?") format("eot"),
+    /* IE 6-8 */ url("UthmanTN1.otf") format("opentype"),
+    /* Other browsers */ url("UthmanTN1.otf") format("truetype"); /* Safari, Android, iOS */
+}
 
 footer {
   position: relative;
   bottom: 0;
-  
 }
 /* nav active */
 .active {
   color: #81c686;
   transition: all 0.3s ease-in-out;
 }
-
 
 button[data-theme="add"] {
   background-color: #193043;
@@ -91,16 +86,14 @@ button[data-theme="remove"] {
   font-weight: bold;
 }
 
- /* button for edit */
-  button[data-theme="edit"] {
-    background-color: #193043;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  
-  
+/* button for edit */
+button[data-theme="edit"] {
+  background-color: #193043;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}

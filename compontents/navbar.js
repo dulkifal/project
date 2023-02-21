@@ -42,7 +42,7 @@ const Navbar = () => {
         {/* add two class to it */}
 
         <div className={`${s.navLinks}  ${active ? s.show : ""}`}>
-          <ChangeLang />
+          {/* <ChangeLang /> */}
           {navLinksData.map((link, index) => (
             <Link
               href={link.path}

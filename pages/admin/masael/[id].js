@@ -27,13 +27,15 @@ const EditMasael = () => {
   };
 
   const addAnswer = (id) => {
-    const question = document.getElementById("question").value;
+    const title = document.getElementById("title").value;
 
-    const answer = document.getElementById("answer").value;
+    const content = document.getElementById("content").value;
+    const writer = document.getElementById("author").value;
     const lang = document.getElementById("lang").value
       ? document.getElementById("lang").value
       : "ar";
-    patchData("/api/masael", { id, question, answer, lang }).then(() => {
+      const published = document.getElementById("publish").checked ? "true" : "false";
+    patchData("/api/masael", { id, title, content, lang, published }).then(() => {
       fetchMasael();
     });
   };
@@ -54,7 +56,7 @@ const EditMasael = () => {
             <label htmlFor="question">السؤال:</label>
             <textarea
               defaultValue={masael.title}
-              id="question"
+              id="title"
               rows={2}
               cols={150}
             />
@@ -62,15 +64,18 @@ const EditMasael = () => {
             <label htmlFor="aswer">الجواب:</label>
             <textarea
               defaultValue={masael.content}
-              id="answer"
+              id="content"
               rows={15}
               cols={150}
             />
            
           {/* label */}
-          <label htmlFor="name">الاسم:</label>
-          <input defaultValue={masael.writer}/>
+          <label htmlFor="name">الكاتب:</label>
+          <input defaultValue={masael.writer} id="author" />
+       
+            <label htmlFor="lang">    نشر</label>
           
+            <input type="checkbox" name="publish" id="publish" checked={masael.published} />
          
           </div>
            <button data-theme="add" onClick={() => addAnswer(masael.id)}>

@@ -19,7 +19,7 @@ const EditFatwa = () => {
     fetchFatwa();
     fetchFatwa();
     console.log(fatwa);
-  }, []);
+  }, [id]);
 
   const fetchFatwa = () => {
     getData(`/api/fatwa/${id}`).then((data) => {

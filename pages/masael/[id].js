@@ -13,7 +13,7 @@ const Masala = () => {
     getData(`/api/masael/${id}`).then((data) => {
       setMasala(data[0]);
     });
-  }, []);
+  }, [id]);
 
   return (
     <div className={s.container}>
@@ -26,7 +26,7 @@ const Masala = () => {
         <div className={s.blogs}>
           {masala && (
             <div key={masala.id} className={s.card}>
-              <h3>{englishToArabic(masala.id)+' :'+  masala.title}</h3>
+              <h3>{   masala.title}</h3>
               <p>{masala.content}</p>
               <p>{masala.writer} </p>
             </div>

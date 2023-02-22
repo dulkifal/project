@@ -18,7 +18,7 @@ export default function Article() {
     getData(`/api/article/${id}`).then((data) => {
       setArticle(data[0]);
     });
-  }, []);
+  }, [id]);
   
 
   return (

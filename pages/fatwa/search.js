@@ -12,7 +12,7 @@ const SearchPage = () => {
   useEffect(() => {
     setTerm(query.term || "");
     getSearchResults();
-  }, [query.term, getSearchResults]);
+  }, [query.term, term ]);
 
   const getSearchResults = async () => {
     const res = await getData(`/api/fatwa/search?term=${term}`);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import s from "../../styles/admin/answer.module.css";
-import { getData } from "../../lib/baseApi";
+import { englishToArabic, getData } from "../../lib/baseApi";
 import Head from "next/head";
 
 const Masala = () => {
@@ -26,7 +26,7 @@ const Masala = () => {
         <div className={s.blogs}>
           {masala && (
             <div key={masala.id} className={s.card}>
-              <h3>{masala.title}</h3>
+              <h3>{englishToArabic(masala.id)+' :'+  masala.title}</h3>
               <p>{masala.content}</p>
               <p>{masala.writer} </p>
             </div>

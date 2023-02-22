@@ -11,6 +11,7 @@ import Sidebar from "../compontents/sidebar";
 export default function Home() {
   const [fatwas, setFatwas] = useState([]);
   const [articles, setArticles] = useState([]);
+  const [masael, setMasael] = useState([]);
   const { lang } = useContext(LangContext);
 
   useEffect(() => {
@@ -20,6 +21,10 @@ export default function Home() {
     getData("/api/article").then((data) => {
       setArticles(data.filter((article) => article.lang === lang));
     });
+    getData("/api/masael").then((data) => {
+      setMasael(data.filter((masael) => masael.lang === lang));
+    }
+    );
   }, [lang]);
 
   return (
@@ -52,6 +57,17 @@ export default function Home() {
               <Link href={`/article/${article.id}`}>
                 <h4>{englishToArabic(article.id)+ ': ' + article.title}</h4>
                 <p>{article.content?.slice(0, 100)}....</p>
+              </Link>
+              </div>
+          ))}
+          </div>
+          <h3>بعض من المسائل</h3>
+          <div className={s.blogs}>
+          {masael.slice(0,6).map((masael) => (
+            <div key={masael.id} className={s.card}>
+              <Link href={`/masael/${masael.id}`}>
+                <h4>{englishToArabic(masael.id)+ ': ' + masael.title}</h4>
+                <p>{masael.content?.slice(0, 100)}....</p>
               </Link>
               </div>
           ))}

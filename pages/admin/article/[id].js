@@ -15,7 +15,7 @@ const EditAricle = () => {
 
   useEffect(() => {
     fetchArticle();
-  }, []);
+  }, [id]);
  
 
 

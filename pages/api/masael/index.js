@@ -38,13 +38,13 @@ function getMasael(req, res, db) {
 }
 
 function addMasael(req, res, db) {
-  const { title, content, lang, author, published } = req.body;
+  const { title, content, lang, writer, published } = req.body;
   db.query(
     `
-    INSERT INTO masael (title, content,lang, author, published)
+    INSERT INTO masael (title, content,lang, writer, published)
     VALUES (?, ?,?, ?, ?)
     `,
-    [title, content, lang, author, published],
+    [title, content, lang, writer, published],
     (error, results, fields) => {
       if (error) throw error;
       res.send(results);
@@ -54,12 +54,12 @@ function addMasael(req, res, db) {
 
 function updateMasael(req, res, db) {
   let valid = validateUser(req, res);
-  const { title, content, lang, author, published, id } = req.body;
+  const { title, content, lang, writer, published, id } = req.body;
   // add answer to the question with id
   valid
     ? db.query(
-        `UPDATE masael SET title = ?, content = ?, lang = ?, author = ?, published = ? WHERE id = ?`,
-        [title, content, lang, author, published, id],
+        `UPDATE masael SET title = ?, content = ?, lang = ?, writer = ?, published = ? WHERE id = ?`,
+        [title, content, lang, writer, published, id],
         (error, results, fields) => {
           if (error) throw error;
           res.send(results);

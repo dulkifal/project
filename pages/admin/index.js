@@ -6,10 +6,12 @@ import s from "./adminPage.module.css";
 export default function Admin() {
   const [article, setArticle] = useState([]);
   const [fatwa, setFatwa] =   useState([]);
+  const [masael, setMasael] = useState([]);
 
   useEffect(() => {
     fetchArticle();
     fetchFatwa();
+    fetchMasael();
   }, []);
   // fetch article
   const fetchArticle = () => {
@@ -22,6 +24,12 @@ export default function Admin() {
       setFatwa(data);
     });
   };
+   const fetchMasael = () => {
+    getData("/api/masael/").then((data) => {
+      setMasael(data);
+    });
+  };
+
   return (
     <div className={s.adminPage}>
       <h2>لوحة الادارة</h2>
@@ -82,6 +90,35 @@ export default function Admin() {
           <tr>
             <Link href="/admin/article">
               <button>عرض المقالات</button>
+            </Link>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <th>رقم</th>
+            <th>الاسئلة</th>
+            <th>الجواب</th>
+            <th>تعديل</th>
+            <th>نشر</th>
+          </tr>
+          {masael &&
+            masael.map((masael) => (
+              <tr key={masael.id}>
+                <td>{masael.id}</td>
+                <td>{masael.title}</td>
+                <td>{masael.content.slice(0, 100)}</td>
+                <td>
+                  {" "}
+                  <Link href={`/admin/masael/${masael.id}`}>
+                    <button>تعديل</button>
+                  </Link>
+                </td>
+                {masael.published ? <td>منشور</td> : <td> غير منشور</td>}
+              </tr>
+            ))}
+          <tr>
+            <Link href="/admin/masael">
+              <button>عرض المسائل</button>
             </Link>
           </tr>
         </table>

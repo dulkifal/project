@@ -1,8 +1,9 @@
 import styles from '../../styles/fatwa.module.css'
-
+ 
 const Ask = () => {
   return (
     <div className={styles.askContainer}  >
+      
       <h4>اطرح سؤالاً من خلال استكمال النموذج التالي</h4>
       <form  >
        

@@ -21,8 +21,8 @@ const Fatwa = ( ) => {
   return (
       <div className={s.container}>
       <Head>
-        <title> التفقه</title>
-        <meta name="description" content=" قسم الفقه وأصوله" />
+        <title>  {fatwa.question}</title>
+        <meta name="description" content={fatwa.answer} />
       </Head>
      <main className={s.main}>
         <div className={s.blogs}>

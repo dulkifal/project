@@ -24,8 +24,8 @@ export default function Article() {
   return (
     <div className={s.container}>
       <Head>
-        <title> التفقه</title>
-        <meta name="description" content=" قسم الفقه وأصوله" />
+        <title>  {article.title}</title>
+        <meta name="description" content={article.content} />
       </Head>
 
       <main className={s.main}>
@@ -42,4 +42,8 @@ export default function Article() {
       </main>
     </div>
   );
+}
+export async function generateMetadata({ params, searchParams }) {
+  const product = await getProduct(params.id)
+  return { title: product.title }
 }

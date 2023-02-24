@@ -18,8 +18,8 @@ const Masala = () => {
   return (
     <div className={s.container}>
       <Head>
-        <title> التفقه</title>
-        <meta name="description" content=" قسم الفقه وأصوله" />
+        <title>  {masala.title}</title>
+        <meta name="description" content={masala.content} />
       </Head>
 
       <main className={s.main}>

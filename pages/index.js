@@ -8,6 +8,11 @@ import { englishToArabic, getData } from "../lib/baseApi";
 import { LangContext } from "./_app";
 import Sidebar from "../compontents/sidebar";
 
+export const metadata = {
+  title: 'Home',
+  description: 'Welcome to Next.js',
+};
+
 export default function Home() {
   const [fatwas, setFatwas] = useState([]);
   const [articles, setArticles] = useState([]);
@@ -31,7 +36,7 @@ export default function Home() {
     <div className={s.container}>
       <Head>
         <title> التفقه</title>
-        <meta name="description" content=" قسم الفقه وأصوله" />
+        <meta name="description" content="  و الفقه الشافعي و  الفقه و فتوى  قسم الفقه وأصوله" />
       </Head>
 
       <main className={s.main}>
@@ -74,7 +79,7 @@ export default function Home() {
           </div>
         </div>
 
-      <Sidebar/>
+      <Sidebar/>  
       </main>
     </div>
   );

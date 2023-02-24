@@ -2,6 +2,11 @@ import Navbar from "./navbar";
 import { AnalyticsWrapper } from "./analytics";
 import s from "./comp.module.css";
 
+export const metadata = {
+  title: "Home",
+  description: "Welcome to Next.js"
+}
+
 const Layout = ({ children }) => {
   return (
     <>
@@ -19,6 +24,7 @@ export default Layout;
 const Header = () => {
   return (
     <header>
+       
       <Navbar />
     </header>
   );

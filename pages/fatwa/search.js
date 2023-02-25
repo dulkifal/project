@@ -24,13 +24,14 @@ const SearchPage = () => {
     <div className={s.answerSection}>
         <h1> نتيجة البحث</h1>
       <div className={s.aswerContainer}></div>
-      {results.map((result) => (
+      {results.length >= 1 ? results.map((result) => (
         <div key={result.id} className={s.searchCard}>
           <h3>السؤال: {result.question}</h3>
           <label htmlFor="">الجواب :</label>
           <p> {result.answer}</p>
         </div>
-      ))}
+      ))  : <h1>لا يوجد نتائج</h1>
+    }
     </div>
   );
 };

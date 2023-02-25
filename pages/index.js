@@ -7,6 +7,7 @@ import { englishToArabic, getData } from "../lib/baseApi";
 
 import { LangContext } from "./_app";
 import Sidebar from "../compontents/sidebar";
+import Skeleton from "../compontents/skelton";
 
 export const metadata = {
   title: 'Home',
@@ -17,17 +18,21 @@ export default function Home() {
   const [fatwas, setFatwas] = useState([]);
   const [articles, setArticles] = useState([]);
   const [masael, setMasael] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { lang } = useContext(LangContext);
 
   useEffect(() => {
     getData("/api/fatwa").then((data) => {
       setFatwas(data.filter((fatwa) => fatwa.lang === lang));
+      setLoading(false);
     });
     getData("/api/article").then((data) => {
       setArticles(data.filter((article) => article.lang === lang));
+      setLoading(false);
     });
     getData("/api/masael").then((data) => {
       setMasael(data.filter((masael) => masael.lang === lang));
+      setLoading(false);
     }
     );
   }, [lang]);
@@ -43,9 +48,9 @@ export default function Home() {
         <div>
 
           <h3>بعض من الفتاوى</h3>
+  {loading && <Skeleton count={6} />}
         <div className={s.blogs}>
           
-
           {fatwas.slice(0,6).map((fatwa) => (
             <div key={fatwa.id} className={s.card}>
               <Link href={`/fatwa/${fatwa.id}`}>

@@ -48,7 +48,7 @@ export default function Home() {
         <div>
 
           <h3>بعض من الفتاوى</h3>
-  {loading && <Skeleton count={6} />}
+  {loading && <Skeleton count={3} />}
         <div className={s.blogs}>
           
           {fatwas.slice(0,6).map((fatwa) => (
@@ -61,6 +61,8 @@ export default function Home() {
           ))}
         </div>
         <h3>بعض من المقالات</h3>
+  {loading && <Skeleton count={3} />}
+
         <div className={s.blogs}>
           {articles.slice(0,6).map((article) => (
             <div key={article.id} className={s.card}>
@@ -72,6 +74,8 @@ export default function Home() {
           ))}
           </div>
           <h3>بعض من المسائل</h3>
+  {loading && <Skeleton count={3} />}
+
           <div className={s.blogs}>
           {masael.slice(0,6).map((masael) => (
             <div key={masael.id} className={s.card}>

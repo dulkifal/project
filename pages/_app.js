@@ -14,6 +14,8 @@ function MyApp({ Component, pageProps }) {
       <Layout>
         
           <title> التفقه </title>
+          <meta name="description" content="التفقه" />
+          <lang lang='ar' />
 
         <Component {...pageProps} />
       </Layout>

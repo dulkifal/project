@@ -13,7 +13,7 @@ const Fatwa = () => {
     getData(`/api/fatwa/${id}`).then((data) => {
       setFatwa(data[0]);
     });
-  }, []);
+  }, [id]);
 
   return (
     <div className={s.container}>

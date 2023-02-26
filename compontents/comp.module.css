@@ -46,7 +46,7 @@
   
 }
 .navItems a:hover {
-  color: #81c686;
+  color: #0e9fde;
   transition: all 0.3s ease-in-out;
 }
 
@@ -139,7 +139,7 @@
   border-top: 1px solid #e5e5e5;
 }
 .footer a:hover {
-  color: #81c686;
+  color: #0e9fde;
   transition: all 0.3s ease-in-out;
 }
 

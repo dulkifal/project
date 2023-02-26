@@ -61,6 +61,8 @@ textarea{
   src: url("UthmanTN1.otf?") format("eot"),
     /* IE 6-8 */ url("UthmanTN1.otf") format("opentype"),
     /* Other browsers */ url("UthmanTN1.otf") format("truetype"); /* Safari, Android, iOS */
+  font-display: swap;
+
 }
 
 footer {
@@ -73,7 +75,6 @@ footer {
   /* color with radio to this 193043 */
   color: #0e9fde;
    
-  transition: all 0.3s ease-in-out;
 }
 
 button[data-theme="add"] {

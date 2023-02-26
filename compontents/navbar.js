@@ -83,6 +83,7 @@ const Search = () => {
           width={20}
           height={20}
           onClick={handleSubmit}
+          alt="search icon"
         />
       </form>
     </div>

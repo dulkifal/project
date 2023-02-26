@@ -5,10 +5,6 @@ import Head from "next/head";
 
 export const LangContext = createContext();
 
-export const metadata = {
-  title: "Home",
-  description: "Welcome to Next.js",
-};
 
 function MyApp({ Component, pageProps }) {
   const [lang, setLang] = useState("ar");
@@ -16,14 +12,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <LangContext.Provider value={{ lang, setLang }}>
       <Layout>
-        <Head>
-          <title> التفقه</title>
-          <meta
-            name="description"
-            content="  و الفقه الشافعي و  الفقه و فتوى  قسم الفقه وأصوله"
-          />
-          <lang lang="ar" />
-        </Head>
+        
+          <title> التفقه </title>
 
         <Component {...pageProps} />
       </Layout>

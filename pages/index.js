@@ -4,10 +4,8 @@ import s from "../styles/Home.module.css";
 import { englishToArabic, getData } from "../lib/baseApi";
 
 import { LangContext } from "./_app";
-import { lazy } from 'react';
 
-// import Sidebar from "../compontents/sidebar";
-const Sidebar = lazy(() => import('../compontents/sidebar'));
+import Sidebar from "../compontents/sidebar";
 import Skeleton from "../compontents/skelton";
 
 export default function Home() {

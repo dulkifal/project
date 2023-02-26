@@ -14,6 +14,8 @@ export const metadata = {
   description: 'Welcome to Next.js',
 };
 
+//  കാരണവർ `
+
 export default function Home() {
   const [fatwas, setFatwas] = useState([]);
   const [articles, setArticles] = useState([]);

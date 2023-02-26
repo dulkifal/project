@@ -35,7 +35,7 @@ const Navbar = () => {
       <h1>  التفقه</h1>
       <div className={s.navItems}>
         <div className={s.humburger}>
-          <img src="/icons/hamburger.png" alt="" onClick={() => toggleNav()} />
+          <img src="/icons/hamburger.png" alt="menu icon" onClick={() => toggleNav()} />
         </div>
 
         <Search />

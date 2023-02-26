@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useEffect, useState } from "react";
 import s from "../../../styles/admin/article.module.css";
 import { getData, deleteData, postData } from "../../../lib/baseApi";
@@ -47,16 +46,13 @@ const Article = () => {
 
   return (
     <div className={s.container}>
-      <Head>
-        <title>التفقه</title>
-        <meta name="description" content="قسم الفقه وأصوله" />
-      </Head>
+     
 
       <main className={s.main}>
         <div className={s.blogs}>
           {article.map((article) => (
             <div key={article.id} className={s.card}>
-              <h4>{article.title}</h4>
+              <h3>{article.title}</h3>
               <p>{article.content}</p>
               <p>{article.author}</p>
 

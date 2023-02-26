@@ -50,6 +50,7 @@ textarea{
   src: url("DroidArabicKufiRegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -68,7 +69,10 @@ footer {
 }
 /* nav active */
 .active {
-  color: #81c686;
+  /* color: #193043; */
+  /* color with radio to this 193043 */
+  color: #0e9fde;
+   
   transition: all 0.3s ease-in-out;
 }
 

@@ -4,7 +4,7 @@ const Ask = () => {
   return (
     <div className={styles.askContainer}  >
       
-      <h4>اطرح سؤالاً من خلال استكمال النموذج التالي</h4>
+      <h3>اطرح سؤالاً من خلال استكمال النموذج التالي</h3>
       <form  >
        
         <textarea type="textarea" id="question"  placeholder=" سؤال"  />

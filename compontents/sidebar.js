@@ -22,16 +22,16 @@ const Sidebar = ()=>{
             <h3>تابعنا على</h3>
             <div className={s.socialMediaIcons}>
               <Link href={"https://www.instagram.com/dhiufiqdep/"}>
-                <Image src="/icons/instagram.png" width={30} height={30} />
+                <Image src="/icons/instagram.png" width={30} height={30} alt='instagram icon' />
               </Link>
               <Link href={"https://www.facebook.com/"}>
-                <Image src="/icons/facebook.png" width={30} height={30} />
+                <Image src="/icons/facebook.png" width={30} height={30} alt='facebook icon'/>
               </Link>
               <Link href={"https://wa.me/918089112587/"}>
-                <Image src="/icons/whatsapp.png" width={30} height={30} />
+                <Image src="/icons/whatsapp.png" width={30} height={30} alt='whatsapp icon' />
               </Link>
               <Link href={"https://www.youtube.com/channel/UCQNaejvitIOx1dAYhf83FWQ"}>
-                <Image src="/icons/youtube.png" width={30} height={30} />
+                <Image src="/icons/youtube.png" width={30} height={30} alt='youtube icon' />
               </Link>
             </div>
           </div>

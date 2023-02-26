@@ -1,5 +1,3 @@
-import Head from "next/head";
- 
 import Link from "next/link";
 import { useEffect, useState, useContext } from "react";
 import s from "../../styles/Home.module.css";
@@ -24,10 +22,7 @@ export default function Article() {
    
   return (
     <div className={s.container}>
-      <Head>
-        <title>  التفقه</title>
-        <meta name="description" content=" قسم الفقه وأصوله" />
-      </Head>
+      
 
       <main className={s.main}>
        
@@ -37,7 +32,7 @@ export default function Article() {
             article.map((article) => (
             <div key={article.id} className={s.card}>
                 <Link href={`/article/${article.id}`}>
-                <h4> {article.title}</h4>
+                <h3> {article.title}</h3>
                 <p>{article.content.slice(0,100)}....</p>
                 </Link>
             </div>

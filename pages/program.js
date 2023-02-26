@@ -20,7 +20,7 @@ const ProgramsPage = () => {
       <ul>
         {programs.map((program) => (
           <li key={program.id}>
-            <h4>{program.title}</h4>
+            <h3>{program.title}</h3>
             <p>{program.content}</p>
           </li>
         ))}

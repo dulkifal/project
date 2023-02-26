@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useContext } from "react";
 import s from "../../styles/Home.module.css";
@@ -20,16 +18,13 @@ const Fatwas = () => {
 
   return (
      <div className={s.container}>
-    <Head>
-        <title> التفقه</title>
-        <meta name="description" content=" قسم الفقه وأصوله" />
-      </Head>
+     
       <main className={s.main}>
        <div className={s.blogs}>
           {fatwas.map((fatwa) => (
             <div key={fatwa.id} className={s.card}>
               <Link href={`/fatwa/${fatwa.id}`}>
-                <h4>{fatwa.question}</h4>
+                <h3>{fatwa.question}</h3>
                 <p>{fatwa.answer?.slice(0, 100)}....</p>
               </Link>
             </div>

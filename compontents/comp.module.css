@@ -31,11 +31,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  
 
 }
 .navItems span {
   display: flex;
+   
+}
+.navItems a {
+  padding: 1rem;
+  min-width: fit-content;
+  width: 100%;
+  text-align: center;
+  
 }
 .navItems a:hover {
   color: #81c686;
@@ -247,7 +255,7 @@
     z-index: 10;
   }
   .humburger img {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 24px;
   }
 }

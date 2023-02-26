@@ -19,12 +19,11 @@ export default function Article() {
       setArticle(data[0]);
     });
   }, [id]);
-  
 
   return (
     <div className={s.container}>
       <Head>
-        <title>  {article.title}</title>
+        <title> {article.title}</title>
         <meta name="description" content={article.content} />
       </Head>
 
@@ -32,10 +31,8 @@ export default function Article() {
         <div className={s.blogs}>
           {article && (
             <div key={article.id} className={s.card}>
-             
-                <h4> {article.title}</h4>
-                <p>{article.content} </p>
-              
+              <h3> {article.title}</h3>
+              <p>{article.content} </p>
             </div>
           )}
         </div>
@@ -44,6 +41,6 @@ export default function Article() {
   );
 }
 export async function generateMetadata({ params, searchParams }) {
-  const product = await getProduct(params.id)
-  return { title: product.title }
+  const product = await getProduct(params.id);
+  return { title: product.title };
 }

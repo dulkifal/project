@@ -1,10 +1,9 @@
-.navItems *{
+.navItems * {
   font-family: "Montserrat", sans-serif;
 }
 
 .navbar h1 {
   margin: 0;
-  /* padding-top: 10px; */
   padding-bottom: 0;
   text-align: center;
   font-weight: 100;
@@ -22,7 +21,7 @@
   height: 60px;
   font-weight: bold;
   font-size: 1.2rem;
-  color: #fff;
+  color: #ffffffcd;
   background-color: #193043;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -31,22 +30,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
-
 }
 .navItems span {
   display: flex;
-   
 }
 .navItems a {
   padding: 1rem;
   min-width: fit-content;
   width: 100%;
   text-align: center;
-  
 }
 .navItems a:hover {
-  color: #0e9fde;
+  color: #ffffffed;
   transition: all 0.3s ease-in-out;
 }
 
@@ -93,7 +88,6 @@
 }
 /* sidebar */
 
-
 .sideBar {
   display: flex;
   flex-direction: column;
@@ -124,13 +118,13 @@
   justify-content: center;
   gap: 1rem;
 }
- 
+
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  padding : 4rem 20px;
+  padding: 4rem 20px;
   height: 60px;
   /* font-weight: bold; */
   font-size: 1.2rem;
@@ -147,8 +141,7 @@
   list-style: none;
   display: inline-block;
   margin-right: 1rem;
-  border-bottom: #fff  1px solid;
-
+  border-bottom: #fff 1px solid;
 }
 
 .humburger {
@@ -171,21 +164,45 @@
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-
 }
-
- 
 
 .skeletonTitle {
   width: 10rem;
   height: 1.5rem;
-  background-color: #ccc;
+
+  background: linear-gradient(
+    90deg,
+    rgba(56, 49, 49, 0) 0%,
+    var(--pri-color) 50%,
+    rgba(58, 67, 65, 0) 100%
+  );
+  opacity: 0.3;
+  background-size: 200% 100%;
+  animation: loading 1s infinite;
+  border-radius: 5px;
 }
 
 .skeletonDescription {
-  width: 20rem;
+  width: 90%;
   height: 1rem;
-  background-color: #ccc;
+  border-radius: 5px;
+  background: linear-gradient(
+    90deg,
+    rgba(226, 66, 66, 0) 0%,
+    var(--pri-color) 50%,
+    rgba(10, 192, 150, 0) 100%
+  );
+  opacity: 0.3;
+  background-size: 200% 100%;
+  animation: loading 1s infinite;
+}
+@keyframes loading {
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 100%;
+  }
 }
 .blogs {
   display: grid;
@@ -206,8 +223,6 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   min-height: 10rem;
 }
- 
-
 
 /* small devices */
 @media (max-width: 768px) {
@@ -235,12 +250,9 @@
     background: #193043;
     z-index: 1;
   }
-  .footer{
-    
+  .footer {
     height: 200px;
   }
-
-   
 
   .search {
     position: absolute;

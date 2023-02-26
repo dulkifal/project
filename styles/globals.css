@@ -1,3 +1,7 @@
+:root{
+  --pri-color: #193043;
+}
+
 html,
 body {
   padding: 0;
@@ -73,12 +77,12 @@ footer {
 .active {
   /* color: #193043; */
   /* color with radio to this 193043 */
-  color: #0e9fde;
+  color: #fff;
    
 }
 
 button[data-theme="add"] {
-  background-color: #193043;
+  background-color:var(--pri-color);
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
@@ -111,7 +115,7 @@ button[data-theme="remove"] {
 
 /* button for edit */
 button[data-theme="edit"] {
-  background-color: #193043;
+  background-color: var(--pri-color);
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;

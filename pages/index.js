@@ -20,7 +20,8 @@ export default function Home() {
   useEffect(() => {
     getData("/api/fatwa").then((data) => {
       setFatwas(data.filter((fatwa) => fatwa.lang === lang));
-      setLoading(false);
+      setLoading(false); 
+
     });
     getData("/api/article").then((data) => {
       setArticles(data.filter((article) => article.lang === lang));

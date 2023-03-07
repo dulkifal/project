@@ -31,6 +31,7 @@ const EditFatwa = () => {
     const question = document.getElementById("question").value;
 
     const answer = document.getElementById("answer").value;
+    
     const lang = document.getElementById("lang").value
       ? document.getElementById("lang").value
       : "ar";
@@ -72,7 +73,7 @@ const EditFatwa = () => {
           <label htmlFor="name">الاسم:</label>
           <input defaultValue={fatwa.name}/>
           <label htmlFor="email">البريد الالكتروني:</label>
-          <input defaultValue={fatwa.email}/>
+          <input defaultValue={fatwa.email} type='email' dir="ltr"/>
           </div>
            <button data-theme="add" onClick={() => addAnswer(fatwa.id)}>
               add answer

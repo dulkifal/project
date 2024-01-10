@@ -1,5 +1,6 @@
 import validateUser from "../../../lib/validate";
 import db from "../../../lib/db";
+import { addDoc, collection, getDocs } from "firebase/firestore/lite";
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -21,73 +22,53 @@ export default async function handler(req, res) {
 }
 function addQuestion(req, res, db) {
   const { question, name, email } = req.body;
-  db.query(
-    `
-    INSERT INTO fatwas (question, name, email)
-    VALUES (?, ?, ?)
-    `,
-    [question, name, email],
-    (error, results, fields) => {
-      if (error) throw error;
-      res.send(results);
-    }
-  );
+  const addQuestion = async (db) => {
+    const docRef = await addDoc(collection(db, "fatwas"), {
+      question,
+      name,
+      email,
+    });
+    res.send({ id: docRef.id });
+  };
 }
 
 function getQuesions(req, res, db) {
-  let valid = validateUser(req, res);
-  valid
-    ? db.query(`SELECT * FROM fatwas`, (error, results, fields) => {
-        if (error) throw error;
-        res.send(results);
-      })
-    : db.query(
-        `SELECT * FROM fatwas WHERE answer IS NOT NULL`,
-        (error, results, fields) => {
-          if (error) throw error;
-          res.send(results);
-        }
-      );
+
+  const getQuestions = async (db) => {
+    const querySnapshot = await getDocs(collection(db, "fatwas"));
+    const data = querySnapshot.docs.map((doc) => doc.data());
+    res.send(data);
+  };
+  getQuestions(db);
+
+  
 }
 
 function addAnswer(req, res, db) {
   let valid = validateUser(req, res);
   const { question, answer, id, lang } = req.body;
-  // update the question with the answer
+  const addAnswer = async (db) => {
+    const docRef = await addDoc(collection(db, "fatwas"), {
+      question,
+      answer,
+      id,
+      lang,
+    });
+    res.send({ id: docRef.id });
+  };
+  valid ? addAnswer(db) : res.status(401).send("Not authorized");
 
-  valid
-    ? db.query(
-        `
-    UPDATE fatwas
-    SET question = ?, answer = ?, lang = ?
-    WHERE id = ?
-
-    `,
-        [question, answer, lang, id],
-
-        (error, results, fields) => {
-          if (error) throw error;
-          res.send(results);
-        }
-      )
-    : res.status(401).send("Not authorized");
 }
 
 function deleteQuestion(req, res, db) {
   let valid = validateUser(req, res);
 
   const { id } = req.body;
-  valid
-    ? db.query(
-        `
-    DELETE FROM fatwas
-    WHERE id = ?
-    `,
-        [id],
-        (error, results, fields) => {
-          if (error) throw error;
-          res.send(results);
-        }
-      )
-    : res.status(401).send("Not authorized");
+  const deleteQuestion = async (db) => {
+    const docRef = await addDoc(collection(db, "fatwas"), {
+      id,
+    });
+    res.send({ id: docRef.id });
+  };
+  valid ? deleteQuestion(db) : res.status(401).send("Not authorized");
 }

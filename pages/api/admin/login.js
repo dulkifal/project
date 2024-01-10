@@ -1,5 +1,6 @@
 import db from "../../../lib/db";
 const jwt = require("jsonwebtoken");
+import { addDoc, collection, getDocs } from "firebase/firestore/lite";
 
 export default function handleLogin(req, res) {
   const { method } = req;
@@ -13,19 +14,22 @@ export default function handleLogin(req, res) {
 
 const passJWT = (req, res, db) => {
   const { name, password } = req.body;
-  db.query(
-    "SELECT * FROM users WHERE name = ? AND password = ?",
-    [name, password],
-    (error, results, fields) => {
-      if (error) res.status(500).send(error);
-      if (results.length > 0) {
+  const login = async (db) => {
+    const querySnapshot = await getDocs(collection(db, "users"));
+    const data = querySnapshot.docs.map((doc) => doc.data());
+    data.map((user) => {
+      if (user.name === name && user.password === password) {
         const token = jwt.sign({ name }, process.env.JWT_SECRET, {
           expiresIn: "1h",
         });
         res.send({ token });
-      } else {
-        res.status(401).send("Invalid username or password");
+      }
+      else {
+        res.send({ message: "wrong username or password" });
       }
     }
-  );
+    );
+  }
+  login(db);
+
 };

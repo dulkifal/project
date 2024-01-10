@@ -1,5 +1,6 @@
 import validateUser from "../../lib/validate";
 import db from "../../lib/db";
+import { getDocs, collection } from "firebase/firestore/lite";
 
 export default function handler(req, res) {
   let valid = validateUser(req, res);
@@ -29,30 +30,33 @@ export default function handler(req, res) {
 }
 
 function getUsers(req, res, db) {
-  db.query("SELECT * FROM users", (error, results, fields) => {
-    if (error) throw error;
-    res.send(results);
-  });
+ const getUsers = async (db) => {
+    const querySnapshot = await getDocs(collection(db, "users"));
+    const data = querySnapshot.docs.map((doc) => doc.data());
+    res.send(data);
+  }
+  valid ? getUsers(db) : res.status(401).send("Not authorized");
 }
 
 function createUser(req, res, db) {
   const { name, password } = req.body;
 
-  db.query(
-    "INSERT INTO users SET ?",
-    { name, password },
-    (error, results, fields) => {
-      if (error) throw error;
-      res.send(results);
-    }
-  );
+  const createUser = async (db) => {
+    const docRef = await addDoc(collection(db, "users"), {
+      name,
+      password,
+    });
+    res.send({ id: docRef.id });
+  };
+  createUser(db);
 }
 
 function deleteUser(req, res, db) {
   const { id } = req.body;
 
-  db.query("DELETE FROM users WHERE id = ?", [id], (error, results, fields) => {
-    if (error) throw error;
-    res.send(results);
-  });
+  const deleteUser = async (db) => {
+    await deleteDoc(doc(db, "users", id));
+    res.send({ id });
+  };
+  deleteUser(db);
 }

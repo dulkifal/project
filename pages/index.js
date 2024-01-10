@@ -16,19 +16,20 @@ export default function Home() {
   const { lang } = useContext(LangContext);
 
   useEffect(() => {
-    getData("/api/fatwa").then((data) => {
-      setFatwas(data.filter((fatwa) => fatwa.lang === lang));
-      setLoading(false); 
+    // getData("/api/fatwa/").then((data) => {
+    //   setFatwas(data.filter((fatwa) => fatwa.lang === lang));
+    //   setLoading(false); 
+    //   console.log(data)
 
-    });
+    // });
     getData("/api/article").then((data) => {
       setArticles(data.filter((article) => article.lang === lang));
       setLoading(false);
     });
-    getData("/api/masael").then((data) => {
-      setMasael(data.filter((masael) => masael.lang === lang));
-      setLoading(false);
-    });
+    // getData("/api/masael").then((data) => {
+    //   setMasael(data.filter((masael) => masael.lang === lang));
+    //   setLoading(false);
+    // });
   }, [lang]);
 
   return (
@@ -41,7 +42,7 @@ export default function Home() {
             {fatwas.slice(0, 6).map((fatwa) => (
               <div key={fatwa.id} className={s.card}>
                 <Link href={`/fatwa/${fatwa.id}`}>
-                  <h3>{englishToArabic(fatwa.id) + ": " + fatwa.question}</h3>
+                  <h3>{fatwa.id + ": " + fatwa.question}</h3>
                   <p>{fatwa.answer?.slice(0, 100)}....</p>
                 </Link>
               </div>
@@ -54,7 +55,7 @@ export default function Home() {
             {articles.slice(0, 6).map((article) => (
               <div key={article.id} className={s.card}>
                 <Link href={`/article/${article.id}`}>
-                  <h3>{englishToArabic(article.id) + ": " + article.title}</h3>
+                  <h3>{article.id + ": " + article.title}</h3>
                   <p>{article.content?.slice(0, 100)}....</p>
                 </Link>
               </div>
@@ -67,7 +68,7 @@ export default function Home() {
             {masael.slice(0, 6).map((masael) => (
               <div key={masael.id} className={s.card}>
                 <Link href={`/masael/${masael.id}`}>
-                  <h3>{englishToArabic(masael.id) + ": " + masael.title}</h3>
+                  <h3>{masael.id + ": " + masael.title}</h3>
                   <p>{masael.content?.slice(0, 100)}....</p>
                 </Link>
               </div>

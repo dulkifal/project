@@ -14,11 +14,11 @@ export default function Article() {
   const router = useRouter();
   const { id } = router.query;
 
-  useEffect(() => {
+  // useEffect(() => {
     getData(`/api/article/${id}`).then((data) => {
-      setArticle(data[0]);
+      setArticle(data);
     });
-  }, [id]);
+  // }, [id]);
 
   return (
     <div className={s.container}>
@@ -33,6 +33,7 @@ export default function Article() {
             <div key={article.id} className={s.card}>
               <h3> {article.title}</h3>
               <p>{article.content} </p>
+
             </div>
           )}
         </div>

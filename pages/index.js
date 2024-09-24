@@ -18,12 +18,12 @@ export default function Home() {
   useEffect(() => {
     // getData("/api/fatwa/").then((data) => {
     //   setFatwas(data.filter((fatwa) => fatwa.lang === lang));
-    //   setLoading(false); 
+    //   setLoading(false);
     //   console.log(data)
 
     // });
-    getData("/api/article").then((data) => {
-      setArticles(data.filter((article) => article.lang === lang));
+    getData("/api/article").then((res) => {
+      setArticles(res.filter((data) => data.lang === lang));
       setLoading(false);
     });
     // getData("/api/masael").then((data) => {
@@ -32,6 +32,7 @@ export default function Home() {
     // });
   }, [lang]);
 
+  
   return (
     <div className={s.container}>
       <main className={s.main}>
@@ -52,10 +53,10 @@ export default function Home() {
           {loading && <Skeleton count={3} />}
 
           <div className={s.blogs}>
-            {articles.slice(0, 6).map((article) => (
-              <div key={article.id} className={s.card}>
+            {articles.slice(0, 6).map((article, index) => (
+              <div key={index} className={s.card}>
                 <Link href={`/article/${article.id}`}>
-                  <h3>{article.id + ": " + article.title}</h3>
+                  <h3>{article.title}</h3>
                   <p>{article.content?.slice(0, 100)}....</p>
                 </Link>
               </div>

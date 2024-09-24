@@ -25,7 +25,12 @@ export default async function handler(req, res) {
 function getArticles(req, res, db) {
   const getArticles = async (db) => {
     const querySnapshot = await getDocs(collection(db, "article"));
-    const data = querySnapshot.docs.map((doc) => doc.data());
+    const data = querySnapshot.docs.map((doc) => {
+      return {
+        ...doc.data(), // Get the document data
+        id: doc.id, // Get the document ID
+      }}
+    );
     res.send(data);
   };
   getArticles(db);

@@ -51,14 +51,14 @@ const EditAricle = () => {
     <h2> تحرير المقال {id}</h2> 
     <div className={s.editingArea}>
       <label htmlFor="title">عنوان</label>
-      <input type="text" name="title" id="title" defaultValue={article.title} />
+      <input type="text" name="title" id="title" defaultValue={article?.title} />
       <label htmlFor="content">محتوا</label>
-      <textarea name="content" id="content" cols="30" rows="10" defaultValue={article.content}></textarea>
+      <textarea name="content" id="content" cols="30" rows="10" defaultValue={article?.content}></textarea>
       <label htmlFor="author">الكاتب</label>
-      <input type="text" name="author" id="author" defaultValue={article.author} />
+      <input type="text" name="author" id="author" defaultValue={article?.author} />
       {/* dropdown for select language */}
             <label htmlFor="lang"> اختر لغة</label>
-            <select onChange={(e)=> changeLang(e.target.value)} id={'lang'} defaultValue={article.lang} >
+            <select onChange={(e)=> changeLang(e.target.value)} id={'lang'} defaultValue={article?.lang} >
               <option value="ar">عربية</option>
               <option value="ur">اردو</option>
 
@@ -67,7 +67,7 @@ const EditAricle = () => {
             <div> 
               
             <label htmlFor="lang">    نشر</label>
-            <input type="checkbox" name="publish" id="publish" checked={article.published} />
+            <input type="checkbox" name="publish" id="publish" checked={article?.published} />
             </div>
 
   

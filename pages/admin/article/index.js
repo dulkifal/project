@@ -56,7 +56,7 @@ const Article = () => {
               <p>{article.content}</p>
               <p>{article.author}</p>
 
-              <p>{article.create_time.slice(0, 10)}</p>
+              <p>{article.create_time?.slice(0, 10)}</p>
 
               <div>
                 {/* button for edit */}

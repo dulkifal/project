@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import s from "/styles/admin/login.module.css";
 import { useRouter } from "next/router";
 
@@ -21,6 +21,13 @@ const Login = () => {
       setError(error.message);
     }
   };
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      router.push("/admin");
+    }
+  }
+  , [router]);
 
   return (
     <div className={s.loginPage}>

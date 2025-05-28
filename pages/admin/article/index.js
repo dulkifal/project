@@ -13,6 +13,7 @@ const Article = () => {
   const fetchArticle = () => {
     getData("/api/article").then((data) => {
       setArticle(data);
+      console.log("article data", data);
     });
   };
   // delete article

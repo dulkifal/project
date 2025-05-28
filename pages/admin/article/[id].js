@@ -21,7 +21,8 @@ const EditAricle = () => {
 
   const fetchArticle = () => {
     getData(`/api/article/${id}`).then((data) => {
-      setArticle(data[0]);
+      console.log(data);
+      setArticle(data);
     });
   };
 

@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Your custom styles below */
 :root{
   --pri-color: #193043;
 }

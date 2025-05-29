@@ -1,5 +1,5 @@
 import validateUser from "../../../lib/validate";
-import db from "../../../lib/db";
+import {db} from "../../../lib/firebase";
 import { addDoc, collection, getDocs } from "firebase/firestore/lite";
 
 export default async function handler(req, res) {

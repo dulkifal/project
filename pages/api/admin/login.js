@@ -1,4 +1,4 @@
-import db from "../../../lib/db";
+import {db} from "../../../lib/firebase";
 const jwt = require("jsonwebtoken");
 import { addDoc, collection, getDocs } from "firebase/firestore/lite";
 

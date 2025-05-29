@@ -1,4 +1,4 @@
-import db from "../../../lib/db";
+import {db} from "../../../lib/firebase";
 import validateUser from "../../../lib/validate";
 
 

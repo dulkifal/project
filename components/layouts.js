@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "./navbar";
 import { AnalyticsWrapper } from "./analytics";
 import s from "./comp.module.css";
@@ -33,7 +34,6 @@ const Header = () => {
 const Footer = () => {
   return (
     <footer dir="rtl" style={{zIndex: 0}}>
-      {/* footer of copy write */}
       <div className={s.footer}>
         <div>
           <p>
@@ -44,28 +44,24 @@ const Footer = () => {
         </div>
         <div>
           <h3>الموقع</h3>
-
           <div className={s.footerLinks}>
             <ul>
               <li>
-                <a href="/">الرئيسة</a>
+                <Link href="/">الرئيسة</Link>
               </li>
               <li>
-                <a href="/fatwa/ask">اسأل</a>
-              </li>
-              {/* <li>
-                <a href="/">البرامج</a>
-              </li> */}
-              <li>
-                <a href="/">نبذة عنا</a>
+                <Link href="/fatwa/ask">اسأل</Link>
               </li>
               <li>
-                <a href="/admin/login">مشرف</a>
+                <Link href="/">نبذة عنا</Link>
+              </li>
+              <li>
+                <Link href="/admin/login">مشرف</Link>
               </li>
             </ul>
           </div>
         </div>
       </div>
-    </footer  >
+    </footer>
   );
 };

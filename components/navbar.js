@@ -35,7 +35,7 @@ const Navbar = () => {
     { title: "نبذة عنا", path: "/about" },
     // { title: "مشرف", path: "/admin/login" },
   ];
-  console.log("User:", user?.URL);
+  // console.log("User:", user?.URL);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -90,7 +90,7 @@ const Navbar = () => {
                   className="flex items-center space-x-2 space-x-reverse"
                 >
                   <img
-                    src={user.photoURL || '/default-avatar.png'}
+                    src={user?.photoURL || '/icons/default-avatar.svg'}
                     alt={user.displayName}
                     className="w-8 h-8 rounded-full"
                   />

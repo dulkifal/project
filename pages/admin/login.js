@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../lib/firebase"; // Make sure you have this firebase config file
 
 const Login = () => {
@@ -8,10 +8,13 @@ const Login = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    // if (token) {
-    //   router.push("/admin");
-    // }
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        router.push("/admin");
+      }
+    });
+
+    return () => unsubscribe();
   }, [router]);
 
   const handleGoogleSignIn = async () => {

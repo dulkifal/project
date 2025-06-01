@@ -1,10 +1,30 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { auth } from "../lib/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 const Navbar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      router.push('/');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
 
   const navLinksData = [
     { title: "الرئيسة", path: "/" },
@@ -13,8 +33,20 @@ const Navbar = () => {
     { title: "الفتاوى", path: "/fatwa" },
     { title: "المسائل", path: "/masael" },
     { title: "نبذة عنا", path: "/about" },
-    { title: "مشرف", path: "/admin/login" },
+    // { title: "مشرف", path: "/admin/login" },
   ];
+  console.log("User:", user?.URL);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownOpen && !event.target.closest('.user-menu')) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
 
   return (
     <nav  dir="rtl">
@@ -47,6 +79,43 @@ const Navbar = () => {
           {/* Search Bar */}
           <div className="hidden md:block">
             <Search />
+          </div>
+
+          {/* User Menu */}
+          <div className="hidden md:block ml-4">
+            {user ? (
+              <div className="relative">
+                <button
+                  onClick={() => {setDropdownOpen(!dropdownOpen) , console.log("user clicked", dropdownOpen)}}
+                  className="flex items-center space-x-2 space-x-reverse"
+                >
+                  <img
+                    src={user.photoURL || '/default-avatar.png'}
+                    alt={user.displayName}
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span className="text-sm font-medium text-gray-700">{user.displayName}</span>
+                </button>
+                
+                {dropdownOpen && (
+                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 user-menu">
+                    <button
+                      onClick={handleLogout}
+                      className="block w-full text-right px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      تسجيل الخروج
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                href="/admin/login"
+                className="text-gray-700 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                تسجيل الدخول
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -89,6 +158,35 @@ const Navbar = () => {
           ))}
           <div className="mt-4">
             <Search />
+          </div>
+
+          {/* Mobile User Menu */}
+          <div className="px-3 py-2">
+            {user ? (
+              <div className="flex flex-col space-y-2">
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <img
+                    src={user.photoURL || '/default-avatar.png'}
+                    alt={user.displayName}
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span className="text-sm font-medium text-gray-700">{user.displayName}</span>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="text-right text-gray-700 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  تسجيل الخروج
+                </button>
+              </div>
+            ) : (
+              <Link
+                href="/admin/login"
+                className="block text-gray-700 hover:bg-gray-50 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                تسجيل الدخول
+              </Link>
+            )}
           </div>
         </div>
       </div>

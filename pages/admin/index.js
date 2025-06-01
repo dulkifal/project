@@ -2,8 +2,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getData } from "../../lib/baseApi";
 import s from "./adminPage.module.css";
+import withAuth from '../../components/withAuth';
 
-export default function Admin() {
+function Admin() {
   const [article, setArticle] = useState([]);
   const [fatwa, setFatwa] =   useState([]);
   const [masael, setMasael] = useState([]);
@@ -126,3 +127,5 @@ export default function Admin() {
     </div>
   );
 }
+
+export default withAuth(Admin);

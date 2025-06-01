@@ -4,7 +4,7 @@ import s from "../../styles/Home.module.css";
 import { getData } from "../../lib/baseApi";
  
 import { LangContext } from "../_app";
-import Sidebar from "../../compontents/sidebar";
+import Sidebar from "../../components/sidebar";
  
  
 export default function Article() {

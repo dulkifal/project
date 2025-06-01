@@ -5,8 +5,8 @@ import { englishToArabic, getData } from "../lib/baseApi";
 
 import { LangContext } from "./_app";
 
-import Sidebar from "../compontents/sidebar";
-import Skeleton from "../compontents/skelton";
+import Sidebar from "../components/sidebar";
+import Skeleton from "../components/skelton";
 
 export default function Home() {
   const [fatwas, setFatwas] = useState([]);

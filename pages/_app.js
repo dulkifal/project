@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import Layout from "../compontents/layouts";
+import Layout from "../components/layouts";
 import { createContext, useState } from "react";
 import Head from "next/head";
 
